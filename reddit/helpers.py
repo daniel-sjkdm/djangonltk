@@ -6,13 +6,14 @@ import praw
 import os
 
 
-load_dotenv()
+#load_dotenv()
 
 
-client_id = os.getenv("CLIENT_ID")
-client_secret = os.getenv("CLIENT_SECRET")
-user_agent = os.getenv("USERAGENT")
+client_id = os.environ.get("REDDIT_CLIENT_ID", None)
+client_secret = os.environ.get("REDDIT_CLIENT_SECRET", None)
+user_agent = os.environ.get("REDDIT_USERAGENT", None)
 
+print(client_id)
 
 reddit = praw.Reddit(
     client_id=client_id,
