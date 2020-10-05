@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    <title> NLTK chatbot </title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="root" style="margin-top: 30px;">
+            <div class="row" style="margin-bottom: 15px;">
+                <div class="col-lg-8 col-md-8 col-xs-12">
+                    <h5 class="title"> You can choose a bot to chat with! </h5>
+                </div>
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" 
+                            id="dropdownCBot" role="button" data-toggle="dropdown" 
+                            aria-haspopup="true" aria-expanded="false" style="width: 100%;">
+                            Bots
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownCBot">
+                            {% for bot in chatbots %}
+                                <a class="dropdown-item" name={{bot}} id="dd-bot-choice" href="#"> {{ bot }}  </a> 
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col">
+                        <div id="chat-area">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <form id="human-form" method="POST" autocomplete="off">
+                            {% csrf_token %}
+                            <div class="row" style="margin-top: 15px;">
+                                <div class="col-lg-10 col-md-10 col-xs-12">
+                                    <input name="human_message" id="human-message" type="text" placeholder="Talk with me ..."/>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12">
+                                    <button type="submit" class="btn btn-success btn-sm" style="width: 100%"> Send </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+
+{% block scripts %}
+    <script src="{% static 'js/chatbot.js' %}"></script>
+{% endblock %}

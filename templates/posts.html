@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+{% endblock %}
+
+
+{% block title %}
+    <title> Posts Processing </title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container" style="margin-top: 20px;">
+
+        <h4 style="text-align: center;"> Reddit posts about Python </h4>
+
+        <div class="modal" tabindex="-1" id="post-modal"> 
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">  </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div>
+                        <p class="modal-author">  </p>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="modal-close-button" class="btn btn-danger" data-dismiss="modal"> Close </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="post-container">
+            <div class="row">
+                {% for post in page_obj %}
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"> {{ post.title }} </h5>
+                                <h6 class="card-subtitle"> Author: {{ post.username }}  </h6>
+                                <p class="card-text"> {{ post.content }} </p>
+                                <span class="badge badge-success"> ups: {{ post.ups }} </span>
+                                <span class="badge badge-danger"> downs: {{ post.downs }} </span>
+                                <br/>
+                                <div class="card-actions">
+                                    <button class="btn btn-primary btn-sm detail-button" data-toggle="modal" data-target="#post-modal" id={{post.id}}> Comments </button>
+                                    <a class="btn btn-secondary btn-sm" href="{{post.url}}" target="_blank"> url </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="paginator">
+            <span class="step-links">  
+                {% if page_obj.has_previous %}
+                    <a class="btn btn-secondary btn-sm" href="?page=1"> &laquo; first </a>
+                    <a class="btn btn-secondary btn-sm" href="?page={{ page_obj.previous_page_number }}"> Prev </a>
+                {% endif %}
+
+                <span class="current">
+                    {{ page_obj.number }} / {{ page_obj.paginator.num_pages }} 
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a class="btn btn-secondary btn-sm" href="?page={{ page_obj.next_page_number }}"> Next </a>
+                    <a class="btn btn-secondary btn-sm" href="?page={{ page_obj.paginator.num_pages }}"> Last &raquo; </a>
+                {% endif %}
+            </span>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <!-- <script src="{% static 'js/posts.js' %}"></script> -->
+    <script>
+        $(".detail-button").click((event) => {
+            event.preventDefault();
+            const id = event.target.id;
+            $.ajax({
+                type: "GET",
+                url: `http://127.0.0.1:8000/api/comments/${id}`,
+                success: response => {
+                    $(".modal-body").empty();
+                    if (response.length >= 1) {
+                        response.map(comment => {
+                            $(".modal-body").append(`
+                                <div>
+                                    <p> ${comment.content} </p>
+                                    <hr/>
+                                </div>
+                            `);
+                        });
+                    } 
+                    else {
+                        $(".modal-body").html("The post has no comments!");
+                    }
+                },
+                error: error => {
+                    console.log(error);
+                }
+            })
+        });
+    </script>
+{% endblock %}

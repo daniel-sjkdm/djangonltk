@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" >
+{% endblock %}
+
+
+{% block title %}
+    <title> Data Processing </title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <h3 class="title"> Data processing with praw and django </h3>
+        <section> 
+            This web app uses praw library to fetch posts from reddit api and then add the posts
+            to the django's ORM database. NLKT library is used to perform NLP tasks in the post itself 
+            and the comments.
+        </section>
+        <section>
+            NLTK (Natural Language ToolKit) is used to parse a corpus which is raw text into
+            useful information that can be used later on for complex tasks such as:
+            <ul>
+                <li> Sentiment Analysis </li>
+                <li> Entity named recognition </li>
+                <li> Machine Translation </li>
+                <li> Autocompletion </li>
+                <li> Chatbots </li>
+                <li> and even more... </li>
+            </ul>
+            The basic parsing techniques wich will be performed in the posts are:
+            <ul>
+                <li> Word Tokenization: split a sentece into words </li>
+                <li> Bigrams: a set of two word tokens (ex. ("python", "rules")) </li>
+                <li> Stemming: normalize a word into its root form (being the root not necessarily a word) </li> 
+                <li> Lemmatization: normalize the worls in its root form (beign the root an actual word)  </li>
+                <li> Stop words: words that are commonly used to connect two words but doesn't give information </li>
+                <ul>
+                    <li> Pronouns </li>
+                    <li> Articles </li>
+                    <li> Prepositions </li>
+                    <li> ...etc </li>
+                </ul>
+            </ul>
+        </section>
+        <button class="btn btn-primary">
+            Start
+        </button>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}

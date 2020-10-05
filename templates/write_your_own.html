@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/write_your_own.css' %}">
+{% endblock %}
+
+{% block title %}
+    <title> Write your own </title>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+        <div>
+            <p> Write something here or copy text from another source to parse its content  </p>
+            <form id="wyoform" method="POST">
+                {% csrf_token %}
+                <textarea name="tms" id="tms" rows="10"></textarea> 
+                <br/>
+                <button type="submit" class="btn btn-primary btn-lg" id="submit-btn"> Process </button>
+            </form>
+        </div>
+
+        <div class="wyo-processing">
+            <h5 class="wyo-title"> The sentence was processed </h5>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th> Level </th>
+                            <th> Data </th>
+                        </tr>
+                    </thead>
+                    <tbody id="wyo-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script>
+        console.log("Write your own...");
+
+        $(document).ready(() => {
+            $(".wyo-processing").hide();
+        });
+
+        $("#submit-btn").click(event => {
+            event.preventDefault();
+            const text = $("#tms").val();
+            const encoded_form = $("#wyoform").serialize();
+            if ( text !== "" ) {
+                $.ajax({
+                    type: "post",
+                    url: "http://127.0.0.1:8000/api/posts/parse",
+                    data: encoded_form,
+                    success: response => {
+                        console.log(response)
+                        const sentence_no_stop_words = response["sentence_no_stop_words"].join(" ");
+                        const sentence_tokens = response["sentence_tokens"].map(token => (
+                            `< ${token} >`
+                        ));
+                        const sentence_stems = response["sentence_stems"].map(item => (
+                            `< ${item} >`
+                        ));
+                        const sentence_pos_tags = response["sentence_pos"].map(item => (
+                            `< ${item} >`
+                        ));
+                        const sentence_lemma = response["sentence_lemma"].map(item => Object.entries(item)).map(item => `<${item[0]}: ${item[1]}>`)
+                        $(".wyo-processing").show();
+                        $("#wyo-body").html("");
+                        $("#wyo-body").append(`
+                            <tr>
+                                <td> No stop words  </td>
+                                <td> ${ sentence_no_stop_words }  </td>
+                            </tr>
+                            <tr>
+                                <td> Word tokens  </td>
+                                <td> ${ sentence_tokens } </td>
+                            </tr>
+                            <tr>
+                                <td> Word stems  </td>
+                                <td> ${ sentence_stems } </td>
+                            </tr>
+                            <tr>
+                                <td> POS tags </td>
+                                <td> ${ sentence_pos_tags } </td>
+                            </tr>
+                            <tr>
+                                <td> Words Lemma </td>
+                                <td> ${ sentence_lemma } </td>
+                            </tr>
+                        `);
+                    },
+                    error: err => {
+                        console.log(err)
+                    }
+                });
+            }
+        });
+    </script>
+{% endblock %}
