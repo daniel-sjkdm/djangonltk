@@ -1,0 +1,1251 @@
+[
+    {
+        "title": "Sunday megathread: What's everyone working on this week?",
+        "username": "Im__Joseph",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "print('hello world')",
+            "I just wrapped up and released [PyClone on PyPI](https://pypi.org/project/PyClone/), for driving [rclone](https://rclone.org/) with Python.",
+            "I am trying to get something to convert screenshots of poker hand range matrices into a specific text format.\n\n[https://imgur.com/a/UjgNnIC](https://imgur.com/a/UjgNnIC)\n\nHere is an example of a screenshot. Each square represents the frequencies in which a player would raise (red) or call (black). Its tedious inputting the ranges into another program that takes in mouse clicks with a scroll wheel to change the frequency or you can enter the text. Like so:\n\n [https://imgur.com/a/2cyESQb](https://imgur.com/a/2cyESQb)\n\nAA-JJ,AKs,KQs,QJs,AKo,\\[90.0\\]AQs-AJs\\[/90.0\\],\\[75.0\\]TT-88\\[/75.0\\],\\[50.0\\]AQo,KQo\\[/50.0\\]\n\n&#x200B;\n\nSo as you can see there are multiple problems I am having.\n\n1. Accurately reading the percentages of each square. The screenshots are about 600x600 and not every pixel is crisp so its difficult to code logic to say which pixel is red, black or grey.\n2. There needs to be some cleaning since ALL hands that are a specific frequency percentage need to be grouped together in between \\[xx.0\\] <hands, hands,>\\[/xx.0\\]. So I can't just go through a for loop with the associated hands and link the frequencies with the hand, I need another pass to get it organized into the specified format.\n\n&#x200B;\n\nIf anyone could help with discerning between rgb values of a low quality screenshot I'd be very grateful. Right now I'm taking the length of the image, dividing it by 13, taking the floor of that then looping through one square to take the ratio between rgb values in the pixel before it and if its close to 1 += a color count if not divide it by the length/13 (handsquarewidth) and adding it to a frequency dictionary. \n\nThe intermediary area sometimes is 3 or 4 pixels wide so it cuts down on the total frequency so i end up with for the AJs square  \\[0.425, 0.0, 0.525\\]. 42.5% raise, 0.0% due to the gradient area, and 52.5% call. Which doesn't look right because im doing 40 pixels for the hand square width which may not begin at the very start of the square and the gradient area cuts out some percents. It looks more like 35/65 to me.\n\n&#x200B;\n\nAny advice is welcomed.",
+            "Creating graph relations in neo4j for linux container image layers",
+            "I'm writing a tournament manager to train better AI parameters for my [chess variant AI sandbox game](https://www.chesscraft.ca). It's going well. An \"AI strategy\" is described by a list of numbers, but they are \"const\" in csharp for performance, so the Python wrapper manages the different compilations, processes where two compiled programs compete, and history files generated.\n\nThe tournament part is nearly finished, but I have yet to find a good genetic algorithm library to mutate new generations. I assumed this was a common problem but my evaluation function is so slow that I feel a bit hobbled. I hope I don't have to roll my own, since I already did a genetic thing for a university project and the novelty is gone."
+        ]
+    },
+    {
+        "title": "Saturday megathread: Share your resources!",
+        "username": "Im__Joseph",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "I'm giving back - here's a free book on Python - keep learning during lockdown!",
+        "username": "BigTheory88",
+        "ups": 133,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Thanks for this! I\u2019ll definitely give it a shot!",
+            "You posted this a month ago and got good visibility. However, that post seems to be removed now. Did you remove it or was that the mods?",
+            "Hats off for introducing algorithms and data structures in a light and encouraging way. You rock \ud83d\udc4d",
+            "thank you, i am a freshman struggling to catch up in my cs class and this will be of great help!",
+            "Thank you!"
+        ]
+    },
+    {
+        "title": "Trying to keep my Jump Rope and AI Skills on point! Made this application using OpenPose. Link to the Medium tutorial and the GitHub Repo in the thread.",
+        "username": "jumper_oj",
+        "ups": 2772,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Thanks for sharing. Need this kinda article for my ongoing project.",
+            "Medium Tutorial:\u00a0[Cleaner Pose Estimation using Open Pose](https://medium.com/@adityaojassharma/cleaner-pose-estimation-using-open-pose-6d239cc33fe6)\n\nHere's the GitHub Repo:\u00a0[https://github.com/Adityaojas/Pose-Estimation-Clean](https://github.com/Adityaojas/Pose-Estimation-Clean) (Don't forget to star it if you like it :P)\n\nNOTE: The tutorials are essentially for getting familiar with the concepts of Pose Estimation and getting clean outputs using some level of post-processing. I'll be rolling out the code and tutorial for simple applications using Pose Estimation (including the jump counter) soon in continuation to the medium article, stay tuned if you'd like that!\n\nEDIT: 9 awards in a single day, guys I am totally overwhelmed, you made my day \u2764\ud83d\ude4c\ud83c\udffb\n\nEDIT 2: Since the jumping is getting a lot of attention, I guess sharing my Insta link would be a good idea :P Lots of jump-roping there.. [https://www.instagram.com/adityaojas/?hl=en](https://www.instagram.com/adityaojas/?hl=en)",
+            "That is badass dude. Great job!",
+            "What bothered me is the jumps count kept going around 1.14 mark when you weren't jumping. Anyways, will be going through the code this weekend. Well done Sharma ji!",
+            "Does this work on live streaming, or is it post processing only?",
+            "As someone who\u2019s into both jump roping & learning DL/NN you made me question my life. \n\n\nTake my upvote",
+            "Cool project and jump Rope skills!\n\nThat's very solid info you have there. good job.",
+            "Bruh this is so cool, not only did you code this, but you're also a god at jumproping lmao",
+            "Good, you have my upvote",
+            "This is so cool to me. Good job, man.",
+            "Siraj is that you?",
+            "Is this live input or a recorded video, and then fed into the program?",
+            "This is cool man",
+            "strong of body AND mind",
+            "Very impressive. Amazing work!",
+            "Nice",
+            "Saw your post in LinkedIn fellow Indian !",
+            "Holy shit, that's many ways of amazing. Not to make less of your script but I've been trying to make a full turn on the rope, I'm stuck at half turn jumping backwards. I'll see your video in more detail to learn it. Thanks a lot! Impressive work.",
+            "That\u2019s pretty cool. Are the swings and jumps thresholded or are you doing some classification?",
+            "Awesome job man! thanks for sharing",
+            "have you done boxing?",
+            "This is super dope def gonna check it out. I wanted to do something similar but with powerlifting",
+            "This changes the game. Can you create data that records the rotation of the arms and chest cavity.",
+            "haven't worked in a field, but this is some seriously good sh\\*t",
+            "Would this be usable for mocap without sensors?",
+            "Holy. Smokes.",
+            "What's with the music tho?",
+            "Stop",
+            "What kind of rope do you use?",
+            "I can't read the article (ran out of free articles) - how are you counting left/right swings? Is it based off of where L/R hands are relative to each other/in time?",
+            "Great project!",
+            "bro people who just make this kinda shit for fun im like...what am I doing with my life...",
+            "this isn\u2019t tracking jumps correctly but other than that looks great! also good jump roping",
+            "What\u2019s the song please",
+            "why do I recognise Indians so fast? And looking at your skills, you might be the one everyone talks about, \"Sharma ji ka beta\".\n\nThat's an awesome article :)",
+            "I forgot jump ropes existed",
+            "Amazing work buddy... Super helpful.(\u2022\u203f\u2022)",
+            "What happens around 1:06 that makes it wig out?",
+            "!remindme 3d",
+            "You should post this on r/CrossView",
+            "Good, you have my upvote",
+            "Good, you have my upvote",
+            "Good, you have my upvote",
+            "Good, you have my upvote"
+        ]
+    },
+    {
+        "title": "I made an Instagram Bot to make DeepFakes for everyone! @deepfake.maker",
+        "username": "dome271",
+        "ups": 3073,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Nice project, but people just be wary about the video and images you choose to send to a bot hosted who knows where by someone you don't know, specially when the bot anticipates being banned :)",
+            "The link to the bot is https://instagram.com/deepfake.maker \n\nThe bot is using https://github.com/AliaksandrSiarohin/first-order-model for the image animation and https://github.com/Linzaer/Ultra-Light-Fast-Generic-Face-Detector-1MB for face detection.\n\nIt took me about 2 1/2 weeks making it with every day about 6hr of coding. I might plan on releasing the code, however I first need to make it more readable and there are various other things that make running it difficult (e.g. I had to edit a few things in numpy and other librarys)\n\nAll the commands for the bot:\n\ud83d\udd39\ufe0f /start\n\ud83d\udd39\ufe0f /donate\n\ud83d\udd39\ufe0f /queue\n\ud83d\udd39\ufe0f /stats\n\ud83d\udd39\ufe0f /information\n\ud83d\udd39\ufe0f /about\n\ud83d\udd39\ufe0f /help\n\nAny feedback is happily seen and due to the high amount of costs for the server I made a patreon: https://patreon.com/deepfake_py",
+            "I saw someone do a whole collage style video of smth like this few days ago , was tht you?",
+            "Just what the world needs",
+            "Does it render in real time or do you have to process it? If the latter how much longer does it take than the video itself?",
+            "Did we break it? I got no response :( \n\nEven bots are ignoring me now.\n\nEdit: got a response now. Yay!",
+            "Great stuff! I didn't even know you could make bots in Instagram. I will definitely be checking this out",
+            "How did you do the Instagram bot part? IG does not officially support bots, so all libraries or implementations Ive seen so far just use webdriver and click Buttons etc. Did you find something else, or does this bot use the same method?",
+            "This isnt what a deepfake is, but its nice that you made it easier it for normies i guess",
+            "She moves her face like a pixar character",
+            "Great project. I see you used instagram's private api to read chat messages. I was working on a similar project that would send webhooks for each message to chat bots.\n\nUnfortunately, the main dependency (unofficial libary) was banned. So, as others mentioned, you may need to think alternatives, like Telegram...",
+            "wow! Awesome.",
+            "Amazing and scary at the same time. Good work",
+            "THIS IS AMAZING !  GREAT JOB",
+            "waohh so cool",
+            "I love it!",
+            "Excellent!",
+            "You are legend!  \n\nWhat number completed project is this for you?",
+            "Does it do what we're all gonna use it for....?",
+            "Awesome work",
+            "Awesome work \ud83d\udc4c\ud83d\udc4c",
+            "Nice, what library are you using to automate posting the videos to insta?",
+            "Incredible work. How do you use this bot? Is there an Instagram developers option I'm missing here?...Where are those commands entered?..",
+            "This was so cool",
+            "man o man, this is simply amazing. tried it out right now. yes, the responses are slow but I am sure this will get bigger and bigger.  \njust a question from my side. the place where I stay has strong opinions on deepfake videos of celebrities, personalities etc ie there is only a little place for freedom of speech. any chances of this product getting banned? \n\nAnd, the idea of instagram bots is fascinating! GG.",
+            "Isn't this against instagram TOS?",
+            "Nice project! However, I\u2019d rather have this as telegram bot, I hate facebook.\n\nThey have a well documented api for bots and there are even python modules that make it even easier. I hope I gained your interest in that ;)",
+            "Amazing work here!\nIs there a possibility to make a one time donation?",
+            "Coolllll but scary....but still cooolllllll",
+            "Very cool. Well done.",
+            "This is amazing! Great work",
+            "Tagesschau",
+            "After getting a few requests. You can also make a one time donation via paypal: https://PayPal.me/dome271\n\nSo that you don't need to make a subscription to patreon!\n\nAny money goes into maintaining the servers!",
+            "So like, what song was that in the video tho",
+            "how do you create code which works with instagram?",
+            "The only deepfakes I have seen have been changing the faces in videos to a photo. This is also really cool. Good job",
+            "Dude this thing is so impressive and awesome",
+            "Isn't this just the first order motion model for image animation. Whats the change here? Added anything different?",
+            "I\u2019ve been in the queue for a while and each time I ask how long it will take it says it will take 6 minutes and 34 seconds .... for the past 30 mins",
+            "Does it need Instagram to run? or can I just install the two github libraries and run it locally? I don't use social media. But I have a few large message groups on Telegram and Discord.",
+            "Who is she? For science of course",
+            "THAT IS FUCKING SICK",
+            "This is awesome",
+            "Who's this instagrammer",
+            "who's this tiktoker?",
+            "It's a great project! Do you do some polishing on the video or image before passing them to the models method?",
+            "Reallt cool, love it!",
+            "This will be used to ruin women's lives.",
+            "God I\u2019ve been messing with this for the past 40 minutes it\u2019s so fun! I\u2019ll be sure to donate when I\u2019m able :)",
+            "r/nextfuckinglevel",
+            "Trying it rn! Looks really cool.",
+            "That is so cool",
+            "Have fun!  https://i.imgur.com/jUkwJx5.jpg",
+            "[deleted]",
+            "Damn, even your not is ignoring me."
+        ]
+    },
+    {
+        "title": "MovingPandas is a Python library for handling movement data based on Pandas and GeoPandas",
+        "username": "pmz",
+        "ups": 4,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Why you should try VizTracer to understand your python program",
+        "username": "minkoder",
+        "ups": 21,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Thanks for sharing! HTML output makes it nice for sharing results. Plus the variable logging can be quite helpful.\n\nA solution I've used extensively in the past is to run the code of interest via the \\`cProfile\\` module, pipe the output through [pyprof2calltree](https://pypi.org/project/pyprof2calltree/)and open the results in qcachegrind.\n\n    python -m cProfile -o profile.out your_program.py\n    pyprof2calltree -i profile.out -o cachegrind-input\n    qcachegrind cachegrind-input",
+            "> The core part of VizTracer is built in pure C so the overhead is similar to cProfile, which I assume most of you are already familiar with.\n\nHave you verified this comment via a side-by-side comparison of a non-trivial application? I only ask bc, to my knowledge, it's rather impossible for a call-stack profiler to have a comparable overhead vs. a flat profiler.",
+            "Oh I've hit buffer limit, but hey - this looks great!"
+        ]
+    },
+    {
+        "title": "Depth Understanding Object-Oriented Programming in Python (OOPS)",
+        "username": "gauravlogical",
+        "ups": 3,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "flask SQLAlchemy - is there a way to auto-migrate/auto-update and add new tables?",
+        "username": "Bytetrue",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "You can create a script that will run migrations before starting the gunicorn server, for example",
+            "Have a look a alembic.sqlalchemy.org\nThat might do what you need"
+        ]
+    },
+    {
+        "title": "PSA: Python-LXML memory leaks and a solution",
+        "username": "reckless_commenter",
+        "ups": 6,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Hello guys, I know almost all of you are pretty experts. But, I'm making these beautiful animated python tutorials. I will also make advance tutorials of algorithms and libraries. If you want, you can check the videos out.\u2764\ud83d\ude00",
+        "username": "Ananta_Datta",
+        "ups": 4,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "So what youre saying is I'm pretty but your tutorials are beautiful? Alright then I'll take a look."
+        ]
+    },
+    {
+        "title": "Hello from .NET!",
+        "username": "softwareguy74",
+        "ups": 16,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "welcome to Python \ud83d\udc4b\ud83c\udffb",
+            "How realistic would it be to get a senior level Python focused job if my background has been in a different language?",
+            "welcome to a (still) growing clan",
+            "And I've been told by other .NET devs that there is nothing in the .NET world like Django, nothing that comes close.",
+            "Is there anything you miss coming from .Net?",
+            "Jobs on Python and .NET really depends on the location. Here in my city, there are barely any Python related jobs but .NET jobs are available in abundance."
+        ]
+    },
+    {
+        "title": "I Wrote a Script to notify Me of any Instagram Unfollowers",
+        "username": "Xempes",
+        "ups": 9,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Just discovered Enaml Native: A framework for building native Android and iOS apps in python using native widgets.",
+        "username": "appinv",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "PEP 638 -- Syntactic Macros",
+        "username": "bakery2k",
+        "ups": 24,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I see, I guess we are taking the \"Zen of Python\" out back and putting out of it's misery?",
+            "Absolutely not. Python shouldn't aim to become c++ where you offer some mish-mash of every other possible programming language, and the language becomes so complex, that the people who wrote the language sit around at conferences trying to guess what obscure code does.",
+            "Syntax is horrible, I hope this doesn\u2019t get accepted",
+            "I like how the author's approach to \"we shouldn't add complex language features that will only benefit some users\" is to \"let's add a macro system\".",
+            "So we're Lisp now. Cool, cool cool cool.",
+            "What an astrocity.",
+            "Why are they making python hard to understand?!",
+            "Will this make stack traces cryptic, especially if the macro errors? Will this break intellisense and other tooling trying to make sense of symbols?",
+            "Cool! Macros are an awesome feature in other languages, so it's good to hear that they may come to Python."
+        ]
+    },
+    {
+        "title": "Is it a bad idea to try and learn Pandas before fundamental Python?",
+        "username": "Throwawaj06619",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Do you have any coding experience? If so then not really a bad idea. If you're completely new you'll want to get the absolute basics down. You can also learn them through learning pandas and doing projects. Ultimately, you'll find that you may come back to fundamentals eventually if you don't have them. It's okay to do both imo though.",
+            "Kaggle is pretty good at showing the relevant syntax for the application-specific tasks, so you might get some basic processes running with that and a bit of Googling. The problems are likely to start if your algorithm becomes slightly more complex. Debugging software is a significant part of any software developer's job. Even the most experienced developers will rarely get the code right first time and puzzling out what's wrong is the hardest part. How do you debug your code and straighten out the more obscure dysfunctions if you don't know how to code?\n\nWe have people posting in r/learnpython (and this is where this question should have been asked), asking questions like: Why is my code printing the same thing twice? Why is this data value disappearing? And the answer is that they just don't know how to code. They've been Googling stuff and they don't really understand how to convert a task into an algorithm.",
+            "Many introductory Data Science tutorials will incorporate the basics of Python and Pandas into their lessons or projects so you can pick up the fundamentals at the same time.\n\nHowever, I think it's much easier to grasp certain aspects of Python if you do take the time to learn Python basics alone first."
+        ]
+    },
+    {
+        "title": "I made a program that modifies images randomly",
+        "username": "Ro0t-set",
+        "ups": 5,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Che bello \ud83e\udd29",
+            "So it's like a glitch effect generator? Pretty cool :)",
+            "Neat \ud83d\udc4d\ud83c\udffc"
+        ]
+    },
+    {
+        "title": "I Find Big Blocks to be Iffy",
+        "username": "figTreeProductions",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Hello! I'm a bot!\n\nIt looks like you posted this in multiple subs in a short period of time. \nIn the future, I suggest asking questions like this in learning focused subs like \nr/learnpython, a sub geared towards questions and learning more about python **regardless of how advanced your question might be**. \nPlease follow the subs rules and guidelines when you do post there, it'll help you get better answers faster.\n\nShow /r/learnpython **the code you have tried and describe in detail where you are stuck.** \nIf you are getting an error message, include the full block of text it spits out.\nQuality answers take time to write out, and many times other users will need to ask clarifying questions. Be patient and help them help you. \n\nYou can also ask this question in the [Python discord](https://discord.gg/3Abzge7), \na large, friendly community focused around the Python programming language, open to those who wish to learn the language \nor improve their skills, as well as those looking to help others. \n\n\n\n***\n\n[^(README)](https://github.com/CrakeNotSnowman/redditPythonHelper) \n^(|)\n[^(FAQ)](https://github.com/CrakeNotSnowman/redditPythonHelper/blob/master/FAQ.md) \n^(|)\n^(this bot is written and managed by /u/IAmKindOfCreative) \n\n\n\n^(This bot is currently under development and experiencing changes to improve its usefulness)"
+        ]
+    },
+    {
+        "title": "I hear people saying Python is slow compared to a lot of other programming languages. is this true? who programs in python for large applications where speed matters?",
+        "username": "djsoundmoney3",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Sure it\u2019s slower compared to other languages but that\u2019s the wrong question. The correct question is whether it\u2019s _fast enough_.\n\nYour Volvo might be slower than a Ferrari, but do you _need_ that extra speed?",
+            "Yes, it is comparatively slow, but in most cases Python is still fast enough. The trade-off is that Python is faster to develop in, just slower during execution.",
+            "Python written by an expert will likely be slower than Fortran or C written by an expert. However, you can still make Python extremely fast if you understand basic things like vectorization and memory allocation. I write some heavy-duty code using NumPy and it's generally quite fast if you understand how to efficiently work with and modify arrays. One important consideration when choosing a language is how much overhead you spend *writing* it. If your code takes twice as long as C but you spend a tenth of the time writing it, it may be overall more time efficient in the end. First make it work, then make it fast.",
+            "Most programs don't need every operation to be really fast. Usually there are some specific functions that do some sort of heavy processing. With python your can write code quickly and then in the heavy processing you can drop down to cython and build more optimized code.",
+            "There is an inherent trade off to being easier to work with. Simply put, it\u2019s compiling on the fly versus being pre compiled.",
+            "When writing programs at a large scale, an interpreted languages (like Python or JavaScript) will always be slower than a compiled language (like C or Rust).\n\nThis will always be true because, for example, once you run a Python program it will then have to \"translate\" its instructions into machine code that can then be executef by the computer, whereas C (which is actually the base language of a lot of interpreted languages) can be compiled into machine code before-hand, saving time in the \"translation\" stage and also allowing for many optimisations. Though of course this can take more time in \"development time\" due to the time it takes to compile while developing and testing the program.\n\nAt a large scale, the difference can be around 10-80 times faster, which is why performance-heavy libraries such as numpy are written in C/C++ that Python can then call. So essentially the reason why Python *can* be used for performance-heavy tasks is because the code of libraries doing the heavy lifting is mostly not written in Python.\n\nOn your second question, speed matters a lot more in some tasks than others. For example having a script that changes my wallpaper be 10x slower than it could be doesn't matter that much, but if a video game is written in a language that makes it go from 60 to 6 fps (10x slower), then it does matter. This is a big reason why compiled languages like C/C++ are dominant in the video game industry, in database back-ends, in large-scale computing libraries, and generally use-cases where making the program run 10x slower would be a very big problem.",
+            "Research cotton. It's basically writing python with a lot of c advantages in speed",
+            "The conventional wisdom is that Python can be a bottleneck for CPU-bound operations. If your program is waiting for the disk, the user, or the internet most of the time, it doesn't matter. If you're 3d raytracing in real-time, it does.\n\nMost projects have more important bottlenecks where Python excels (developer time, prototyping speed, code readibility, interoperability), or is as good as everything else (speed of IO operations). Even when sheer speed on the CPU/GPU is an issue, Python can thus be a solid choice for a high level language, just solve those (often small) parts in your language of choice.\n\nPython has some bad reputation because one particular kind of parallel processing doesn't scale in CPython. (Search for the \"GIL\" = global interpreter lock, but don't overestimate it's impact)",
+            "Hello! I'm a bot!\n\nIt looks to me like your post might be better suited for r/learnpython, \na sub geared towards questions and learning more about python **regardless of how advanced your question might be**. \nThat said, I am a bot and it is hard to tell.\nPlease follow the subs rules and guidelines when you do post there, it'll help you get better answers faster.\n\nShow /r/learnpython **the code you have tried and describe in detail where you are stuck.** \nIf you are getting an error message, include the full block of text it spits out.\nQuality answers take time to write out, and many times other users will need to ask clarifying questions. Be patient and help them help you. \n**[Here is HOW TO FORMAT YOUR CODE For Reddit](https://www.reddit.com/r/learnpython/wiki/faq#wiki_how_do_i_format_code.3F)** \nand be sure to include which version of python and what OS you are using.\n\n\nYou can also ask this question in the [Python discord](https://discord.gg/3Abzge7), \na large, friendly community focused around the Python programming language, open to those who wish to learn the language \nor improve their skills, as well as those looking to help others. \n\n\n\n***\n\n[^(README)](https://github.com/CrakeNotSnowman/redditPythonHelper) \n^(|)\n[^(FAQ)](https://github.com/CrakeNotSnowman/redditPythonHelper/blob/master/FAQ.md) \n^(|)\n^(this bot is written and managed by /u/IAmKindOfCreative) \n\n\n\n^(This bot is currently under development and experiencing changes to improve its usefulness)"
+        ]
+    },
+    {
+        "title": "Free resource to learn Django, my book is free for a week (Kindle format). Enjoy !",
+        "username": "balt1794",
+        "ups": 5,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Ah man, it's not available in my country :(",
+            "Thank you!!!"
+        ]
+    },
+    {
+        "title": "Improve your DataLoaders with namedtuples.",
+        "username": "linguistInAPoncho",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "I have written a ray tracing project in Python to generate a scene consisting of objects, looking for feedback and opinions",
+        "username": "safak0",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "I made a Python bot that scrapes Udemy Coupons and then AUTOMATICALLY ENROLLS YOU to those PAID COURSES for FREE. Check out the GitHub below to get the code! :) Do Star & Fork the repository if you like it!",
+        "username": "UtopianCorps",
+        "ups": 121,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Great bot .I hope this is appreciated here.",
+            "That is godsent, brother. Thanks a ton for doing this for everyone!",
+            "Thanks again.. Appreciate if you can automate for this subreddit as well  where lots of free Udemy Courses getting added daily.\n\nList of 70 Free Udemy Courses\n\nhttps://www.reddit.com/r/FREECoursesEveryday/comments/j07ftk/70_free_udemy_courses_adobe_dreamweaver_cc_2020/",
+            "I would be careful in applying this. Just because it gets to be annoying to search for specific courses when your entire catalog is filled with trash you don't need or want.\n\nSeriously, just enroll in the ones you actually want to make use of, or you'll just fill your account up with trash and never revisit any of it.",
+            "Fyi, doesn't seem to work for Chrome.  Udemy wants a zip code so it ends up clicking through the courses.\n\nThere were dozens of free ones today, wow.  Way more than I expected.",
+            "I love it but for some reason it does not add them to my courses, as I'm watching the pages fly by I have noticed that when it goes to check out that the zip code is blank, does that need to be filled in for the transaction to be completed, if so is there a way to autofill that box",
+            "Explain what the video shows? Does it actually enroll in all those courses? If so, why? Who takes that many courses at once? And isn't that damaging to Udemy?",
+            "Pretty impressive!!! Well done",
+            "The super-honey",
+            "This is so cool! I was looking through your code because I'm trying to learn web scraping with selenium as well. What exactly is the difference between the parts [\\# Enroll Now 1](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/b1e8733b34fa90437e3d3e9fdeb1eac625b57afa/udemy_automate_course_enroll_v1.py#L105-L110) and [\\# Enroll Now 2](https://github.com/aapatre/Automatic-Udemy-Course-Enroller-GET-PAID-UDEMY-COURSES-for-FREE/blob/b1e8733b34fa90437e3d3e9fdeb1eac625b57afa/udemy_automate_course_enroll_v1.py#L112-L117)?",
+            "Dude you did great"
+        ]
+    },
+    {
+        "title": "Python script that helps you to create temporary email addresses and receive emails at that address.",
+        "username": "sameera__madushan_",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Well done, do most websites accept the address for registration?"
+        ]
+    },
+    {
+        "title": "Technics, concepts and terms an intermediate programmer should know?",
+        "username": "fake823",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "[So You Want To Be A Python Expert?](https://www.youtube.com/watch?v=cKPlPJyQrt4)",
+            "Perhaps start with some techniques*"
+        ]
+    },
+    {
+        "title": "Categorize messages and get a response from specific category",
+        "username": "4rlenrey",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Automated My Job for the First Time",
+        "username": "BoomerangJack",
+        "ups": 1303,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Well done, it feels good once it's working.\n\nI once used Python to save my team 8 hours a day recording figures from competitor websites.\n\nMy manager said \"this isn't what I asked you to do!\" and demanded we go back to doing it manually...  It wasn't about the figures, it was about control.\n\nSo we all said we did it manually and let my code do the work :D",
+            "Remember to write a cron that picks a random day every two weeks to stop the script so you can \"fix\" it.",
+            "Many hours but only 2 mugs of coffee? You should be ashamed of yourself!",
+            "How much more are they paying you now because of that?",
+            "Man it take me many mugs of coffee to get to the Googling part. Good for you man! Automate the stupid stuff.",
+            "I used to use Python in my work in Excel. It was about creating charts from data, creating new tables etc. So every employee must do it. So I created a Python script that automates these boring stuff. It took me about 3-4 hours (I'm a beginner openpyxel) and I managed to create over 600+ sheets ready to be sent to my boss. My colleagues were grateful for that because not all of them are \"computer friendly\". My boss was also impressed, I got a bonus to my income",
+            "DON\u2019T FUCKING TELL ANYONE AT WORK. JUST MAKE IT SEEM LIKE YOU\u2019RE EXTRA PRODUCTIVE.",
+            "Don't give him the script",
+            "If your boss doesn't give you a raise, start looking for new jobs. A lot easier to get a raise from a new job.",
+            "I\u2019ve learned a lot here too.  Thanks everyone !!!",
+            "Why tell your boss though ? Let him think you are working your ass off.",
+            "So great to hear!",
+            "Dont say you automated you job. Say you're more productive. Doesn't matter how you do it, the results are what count.",
+            "Something here isn't right...\n\n> took many hours, ...  and 2 mugs of coffee\n\n\"many\" hours and only 2 mugs?  This clearly is fabricated :wink:",
+            "Good job OP, happy for you",
+            "Well done my good man",
+            "Only two mugs of coffee!? You are a genious!  \nCongrats op",
+            "That sounds like a ton of time saved. Hopefully the boss knows the value in that. I was happy enough when I used python to rename scanned files.",
+            "I'm a freshman, recently got an internship opportunity. I know python but never done scripting or automating stuff. Can you please suggest some resources from where I can learn scripting and automating stuff? Thankyou",
+            "Look at this asshole: bragging that he only needed two mugs of coffeee for all that SQL automation.",
+            "A mix of python and authotkey both calling each other really automates a lot of my work day.",
+            "Automating your own job out from under you is the winning career strategy of the day. Combine that with democratizing your work among your stakeholders, and you will avoid every round of mass layoffs ever.\n\nBasically, constantly look for ways to stop doing what you currently do. Offload it to bots, or make it easy enough that your stakeholders can do it, themselves. You're constantly evolving into more sophisticated skills, at that rate, you're saving the company from hire -> automate -> fire loops, and you'll never be a bottleneck go-between for your stakeholders.",
+            "Hi, excuse my ignorance, but I'm new to Python and found this really interesting! So what exactly did you have the program do, and what was the test data for? I'm super interested in automation and am curious!\n\nThat's super cool that you were able to do this!",
+            "this is exactly how my python addition started",
+            "Can I ask what you learned about office politics? This is something Im'm mildly concerned about as someone looking for their first developer job.",
+            "man that's gotta be a great freaking feeling. ive tried and quit 3 times to learn python, sometimes I imagine being in your shoes and actually creating something with python",
+            "Ya got any notes or resources you used for python and excel/sql?",
+            "You are really lucky, last time I made a script like that and presented it to my boss, shortly after I lost my job.  Something about not outshining the master blah blah blah.",
+            "Great Workman. Could you please put some more light on the task you had and the solution you cam up",
+            "ok"
+        ]
+    },
+    {
+        "title": "Pndex",
+        "username": "dandaditya",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Best free script hosting service?",
+        "username": "leavvPA",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "AWS Lambda Free Tier. Or less complicated, a scheduled job on your local machine.",
+            "Heroku.com and PythonAnywhere.com are extremely easy to use, have plenty of tutorials on YouTube, and have a free tier",
+            "Hello! I'm a bot!\n\nIt looks to me like your post might be better suited for r/learnpython, \na sub geared towards questions and learning more about python **regardless of how advanced your question might be**. \nThat said, I am a bot and it is hard to tell.\nPlease follow the subs rules and guidelines when you do post there, it'll help you get better answers faster.\n\nShow /r/learnpython **the code you have tried and describe in detail where you are stuck.** \nIf you are getting an error message, include the full block of text it spits out.\nQuality answers take time to write out, and many times other users will need to ask clarifying questions. Be patient and help them help you. \n**[Here is HOW TO FORMAT YOUR CODE For Reddit](https://www.reddit.com/r/learnpython/wiki/faq#wiki_how_do_i_format_code.3F)** \nand be sure to include which version of python and what OS you are using.\n\n\nYou can also ask this question in the [Python discord](https://discord.gg/3Abzge7), \na large, friendly community focused around the Python programming language, open to those who wish to learn the language \nor improve their skills, as well as those looking to help others. \n\n\n\n***\n\n[^(README)](https://github.com/CrakeNotSnowman/redditPythonHelper) \n^(|)\n[^(FAQ)](https://github.com/CrakeNotSnowman/redditPythonHelper/blob/master/FAQ.md) \n^(|)\n^(this bot is written and managed by /u/IAmKindOfCreative) \n\n\n\n^(This bot is currently under development and experiencing changes to improve its usefulness)"
+        ]
+    },
+    {
+        "title": "Python Profiling Toolkit",
+        "username": "jonrmadsen",
+        "ups": 5,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Telegram-cloud (tgcloud) - My first pip package to bypass telegram bot limitation, download, upload, and scrape telegram",
+        "username": "iw4p",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "You guys do realise these limits exist for a reason, right?"
+        ]
+    },
+    {
+        "title": "Dr. Sven - open source data health check",
+        "username": "MeStrak",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Web Scraping with Python & BeautifulSoup 4 Crash Course with hands-on practice",
+        "username": "mehulmpt",
+        "ups": 16,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Open Source Dynamic Tables Collection",
+        "username": "artyom8k",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Python strings properties and methods",
+        "username": "8329417966",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "How I used Python to automatically create YouTube videos!",
+        "username": "willdotavi",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Pymanager |Python-GUI *UPDATES!*",
+        "username": "Yassine_kharrat",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Improving Problem Solving Abilities.",
+        "username": "LORD_TinShade",
+        "ups": 3,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Why would they give their bread away?",
+            "It just takes practise. A lot of those sort of problems are just the same thing over and over repeated lots of ways, like understanding when to use lists, sets or hashmap. Maybe try looking at how other people solve problems, or read books where people talk you through things."
+        ]
+    },
+    {
+        "title": "Mini batch gradient descent from scratch in python",
+        "username": "ai_basics",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Python Cheatsheets I Created To Teach Myself How to Make a Stock Trading Bot",
+        "username": "CoffeeJavaAndStocks",
+        "ups": 9,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Thank you so much. This helps a ton!"
+        ]
+    },
+    {
+        "title": "I created a Time Management Software in Python",
+        "username": "Dark-Night-92",
+        "ups": 6,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Awesome. This is pretty much what got me into programming too. Been trying to figure out how to make something like [this](https://old.reddit.com/r/dataisbeautiful/comments/apadlf/heres_how_i_spent_every_minute_of_2018_oc/) in python over the last few months with aTimeLogger too. I'll definitely be checking out what you got here.\n\nBe sure to check out /r/QuantifiedSelf too if you haven't seen it."
+        ]
+    },
+    {
+        "title": "7 pytest Plugins You Must Definitely Use",
+        "username": "miguendes",
+        "ups": 9,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Pytest-clarity looks promising!"
+        ]
+    },
+    {
+        "title": "PyTerminalMediaViewer - View images, videos, and youtube videos in a unix terminal.",
+        "username": "observerblock",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Is there anyway for python to go on google classroom and just tell you your upcoming work?",
+        "username": "Lost_Guy05",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I don\u2019t know, but try this...\n\nimport google_classroom as gc \ngc.tell_me_my_upcoming_work()\n\nMore info here...\n\nhttps://developers.google.com/classroom/quickstart/python"
+        ]
+    },
+    {
+        "title": "Python and FastAI to Qualify at Fall Guys",
+        "username": "Dwigt-Snooot",
+        "ups": 885,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Cool project, you could train a second network to detect the map and make some kind of mechanism to find out if the network won.  \n\nThen let it play and record the footage every time it won/qualified.  \n\nRelearn every n (e.g. n=100) successful games and plot how many games it did have to play to reach 100 wins. \n\nYou might also train on the past 3 images for one output and see if performance increases, that would be interesting. I probably wouldn't use rnns for speed reasons, but they actually could be decent if you keep the state from the last input.",
+            "Awesome project! I'm the founder of fastai, the lib used here, and wanted you all to know that if you're interested in learning how to do this too, the software, course, and book are all free as a service to the community, and have no ads:\n\n* [Software](https://docs.fast.ai)\n* [Course](https://course.fast.ai)\n* [Book](https://github.com/fastai/fastbook/) (online version)\n\nFYI, the approach shown in this Fall Guys video very closely follows what you learn in lesson 1 of the course (chapter 1 of the book).",
+            "That's a really interesting project! Nice work",
+            "Really Nice!! Great work!",
+            "It's late so I will clean the code up a bit more tomorrow but here is the GitHub if you want to start messing around!\n\n&#x200B;\n\n[GitHub](https://github.com/ClarityCoders/Fall-Guys-AI)\n\nSmall programming group [Discord](https://discord.gg/chWFwCb)",
+            "Nothing against OP and I think this is well done for the method being used, but to me this points out a lot of what is wrong about AI right now. This method takes a problem that could easily be solved by using some generic vision processing and mostly hard-coded logic, over-simplifies it so that even the best resulting AI model will still not be optimal, runs an inefficient and generic machine learning algorithm that is not particularly suited for this specific task, and results in a block box model that is probably overfit to the exact data it was trained on and cannot be easily tweaked to apply to even very similar problems.\n\nObviously this project is just for fun, but the same sorts of methods are being used for things like trying to make autonomous vehicles and other things that are actually important. There are some problems that are appropriate for just throwing a ton of data into a grinder and hoping a good model comes out, but these sorts of methods seem to be used for everything these days.",
+            "Is there a Github link? Fastai v2?",
+            "Great work! Much respect! Was a little bit hoping for a reinforcement learning algorithm as well though!",
+            "Easy Anti-Cheat is such trash, just week I played a game where every single level this one person just flew instantly to the end and beat the level in 5 secs. It was the most obvious thing ever. If they can't catch something that basic, literally never touching the ground the whole game or beating the map in 1/10 the minimum time it takes, then idk what hope there is for that game.\n\nThat being said, Colab and the free training GPU they give you is really awesome!",
+            "Interesting that you used canny for preprocessing. Was it used in the originally trained network as well? \n\nWhile it worked as a proof of concept (awesome results given the effort), supervised learning as applied here doesn't seem to be a good fit for exploring bugs and cheats. But if semi-supervised or reinforcement learning were successfully applied, it would be a great tool for just regular testing in video game development (which I think is really lacking these days).",
+            "Do you have more info on saving the training data and preprocessing the images?",
+            "Heck yea.",
+            "Wow It is a great work! I will check the github once it is published.",
+            "Really cool! How did you label all the images? I hope not by hand",
+            "Where did you learn?",
+            "Using your own inputs for labels is brilliant. What did you use to record those and the screen grabs?",
+            "Sweet project, what was your screen capture frequency the AI was playing? I\u2019m surprised it\u2019s able to do image analysis and then make a decision so quickly",
+            "I am inbetween doing something like this, but for another game. Can I ask few questions? I would really appreciate your help. \n\n.",
+            "Super cool project! Looking forward to the code :)",
+            "That is an interesting project, bud! Great work!",
+            "This just gave me the boost I needed to stop procrastinating and learn python. This is interesting man. Great work!",
+            "Awesome! Love the use of colab.\n\nDoes FastAI have RNNs? Could help to add some memory of the past couple images so the network can predict which gate will be down.",
+            "Really happy to see an implementation that uses vision and movement based inputs vs. plugging right into the game engine. Great work!",
+            "How did you do this? I was thinking of making a similar project for a shooter but need some help on how this kind of program works"
+        ]
+    },
+    {
+        "title": "PyPy new release: now offers python 3.7",
+        "username": "pmatti",
+        "ups": 54,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I think this is great news, PyPy has been stuck on 3.5 for a while now! Interesting to see if there are any performance changes."
+        ]
+    },
+    {
+        "title": "[P] BentoML: the easiest way to build machine learning APIs with Python",
+        "username": "chaoyu",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Build 10 Python Beginner Projects from scratch",
+        "username": "Bluelime_learning",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "View in your timezone:  \n[09/29/2020 02:09 AM PDT][0]  \n\n[0]: https://timee.io/20200929T0909?tl=Build%2010%20Python%20Beginner%20Projects%20from%20scratch",
+            "this is just affiliate marketing. There are better courses out there."
+        ]
+    },
+    {
+        "title": "Tool to generate language, IDE, etc. specific entries for your .gitignore file.",
+        "username": "rtphokie",
+        "ups": 3,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I like to use it as a starting point.  Try entering \"Python\" and \"PyCharm\" (or your favorite IDEA) and paste it into a .gitignore."
+        ]
+    },
+    {
+        "title": "Simple Image to ASCII art script",
+        "username": "UberSeal",
+        "ups": 4,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "This may not be helpful but could you use ocr to attribute the 'darkness' of a character based on how much area is filled? Then you could attribute a value to each character representing it's shade or 'darkness.'",
+            "I did something similar. Can copy the below into your script and save as a string variable (characters go from light to dark):\n\n`^\\\",:;Il!i~+_-?][}{1)(|\\\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$",
+            "What does the original image look like? I'd be interested in seeing this with an image with a variation of dark and light colors/features. \n\nPerhaps take an image and convert to grey scale then apply your newer code and see what you get."
+        ]
+    },
+    {
+        "title": "Got familiar with APIs and requests, made a simple script to download reddit's saved-posts.",
+        "username": "devprabal",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Django vs Flask: Choose the best framework for you? If you\u2019re wondering whether you should use Flask or Django for your project, this article is for you.",
+        "username": "ayushi7rawat",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Hello! I'm a bot!\n\nIt looks like you posted this in multiple subs in a short period of time. \nIn the future, I suggest asking questions like this in learning focused subs like \nr/learnpython, a sub geared towards questions and learning more about python **regardless of how advanced your question might be**. \nPlease follow the subs rules and guidelines when you do post there, it'll help you get better answers faster.\n\nShow /r/learnpython **the code you have tried and describe in detail where you are stuck.** \nIf you are getting an error message, include the full block of text it spits out.\nQuality answers take time to write out, and many times other users will need to ask clarifying questions. Be patient and help them help you. \n**[Here is HOW TO FORMAT YOUR CODE For Reddit](https://www.reddit.com/r/learnpython/wiki/faq#wiki_how_do_i_format_code.3F)** \nand be sure to include which version of python and what OS you are using.\n\n\nYou can also ask this question in the [Python discord](https://discord.gg/3Abzge7), \na large, friendly community focused around the Python programming language, open to those who wish to learn the language \nor improve their skills, as well as those looking to help others. \n\n\n\n***\n\n[^(README)](https://github.com/CrakeNotSnowman/redditPythonHelper) \n^(|)\n[^(FAQ)](https://github.com/CrakeNotSnowman/redditPythonHelper/blob/master/FAQ.md) \n^(|)\n^(this bot is written and managed by /u/IAmKindOfCreative) \n\n\n\n^(This bot is currently under development and experiencing changes to improve its usefulness)",
+            "What\u2019s the advantage of WSGI frameworks compared to ASGI ones?",
+            "Falcon and then just make a front end"
+        ]
+    },
+    {
+        "title": "Freelancing For Python Developers Instantly/Without Interviews",
+        "username": "Duct-LLC",
+        "ups": 3,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I would be.",
+            "I'd be interested",
+            "I'd be interested.",
+            "It sounds interesting.",
+            "Would need some way to prove you can code, cleanly and efficiently. Maybe linked to GitHubs? Maybe tests in the site? Previous projects on the site? Interesting idea, keep us posted"
+        ]
+    },
+    {
+        "title": "pypi.org rate limiting?",
+        "username": "Fencepost",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "PyPI admin here: PyPI doesn't have ratelimits for unauthenticated requests. If you're having problems please file an issue at https://github.com/pypa/pypi-support/issues with lots more details.  Thanks!"
+        ]
+    },
+    {
+        "title": "I created a Time Management Software in Python",
+        "username": "Logical-Carpenter-94",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Now remove jupyter as a dependency. Also make it either a web app if it's currently a gui applications and vice versa.\nNo, but seriously, what is it with jupyter, that everybody thinks its okay to ship software that way?"
+        ]
+    },
+    {
+        "title": "Simple Background Estimation in Videos using OpenCV (C++/Python)",
+        "username": "spmallick",
+        "ups": 3,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "How is the market for Freelancer, Data Scientist?",
+        "username": "matheusbraga86",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "r/datascience",
+            "Hello! I'm a bot!\n\nIt looks to me like your post might be better suited for r/learnpython, \na sub geared towards questions and learning more about python **regardless of how advanced your question might be**. \nThat said, I am a bot and it is hard to tell.\nPlease follow the subs rules and guidelines when you do post there, it'll help you get better answers faster.\n\nShow /r/learnpython **the code you have tried and describe in detail where you are stuck.** \nIf you are getting an error message, include the full block of text it spits out.\nQuality answers take time to write out, and many times other users will need to ask clarifying questions. Be patient and help them help you. \n\nYou can also ask this question in the [Python discord](https://discord.gg/3Abzge7), \na large, friendly community focused around the Python programming language, open to those who wish to learn the language \nor improve their skills, as well as those looking to help others. \n\n\n\n***\n\n[^(README)](https://github.com/CrakeNotSnowman/redditPythonHelper) \n^(|)\n[^(FAQ)](https://github.com/CrakeNotSnowman/redditPythonHelper/blob/master/FAQ.md) \n^(|)\n^(this bot is written and managed by /u/IAmKindOfCreative) \n\n\n\n^(This bot is currently under development and experiencing changes to improve its usefulness)"
+        ]
+    },
+    {
+        "title": "Python Insider: Python 3.8.6 is now available",
+        "username": "japaget",
+        "ups": 274,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Seems like a significant one for `Enum` users:\n\n* bpo-41517: fix bug allowing Enums to be extended via multiple inheritance\n* bpo-39587: use the correct mix-in data type when constructing Enums\n* bpo-41789: Honor object overrides in Enum class creation (specifically, `__str__, __repr__, __format__, `and `__reduce_ex__`).\n* bpo-37479: When `Enum.__str__` is overridden in a derived class, the override will be used by `Enum.__format__` regardless of whether mixin classes are present.\n\nAlso a bunch of asyncio fixes, and this looks potentially treacherous for web stuff:\n\n* bpo-31122: ssl.wrap_socket() now raises ssl.SSLEOFError rather than OSError when peer closes connection during TLS negotiation\n\nThis also looks nice:\n\n* bpo-33660: Fix pathlib.PosixPath to resolve a relative path located on the root directory properly.",
+            ":D thanks",
+            "[removed]"
+        ]
+    },
+    {
+        "title": "I created my First Python package on PyPI : jupyter_timetracker : Time management in a pythonic way.",
+        "username": "Logical-Carpenter-94",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Any way to automate markdown editing with Python?",
+        "username": "fartbaker13",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Look up the regex library documentation sounds like the right tool for the job"
+        ]
+    },
+    {
+        "title": "Ai bots trying to kill each other with guns",
+        "username": "ai_basics",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Our team is working in a generic comercial site backend using Python, TDD and DDD. Ferroshit Team appreciates any feedback or question you can provide.",
+        "username": "JackCid89",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Have to ask why the name? To english speakers, it reads as \"Ferro Shit\" - maybe that's what you intend, but I suspect that's going to limit uptake.",
+            "Iron shit as a company name is hard to believe. Puns"
+        ]
+    },
+    {
+        "title": "How We Use Python's Fire & Boto Modules to Manage 100+ Repos in Serverless Data Pipelines",
+        "username": "twopairisgood",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "My first project - a discord bot.",
+        "username": "Ravenholic",
+        "ups": 222,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "First of all, good job! 500 lines of code is an amazing achievement for someone with only 3 months of learning.\n\nBut looking through the first few seconds of the clip, I think you put 500 lines of code in 1 file, which is not a good practice. Rather I would suggest you to divide the code into classes, methods, and put different commands of the discord bot into different files (for example s/rps can have its code in a file called something like bot\\_rps.py)",
+            "Man I started 10 days ago and I've just begun functions. That's really cool whatever you've done. Can't understand. Too noob. Let's see where I get to in 3 months. Now I have atleast a goal to achieve. \ud83d\ude01",
+            "Cool and all. but trust me, You don't want to use `time.sleep()` in coroutine function.\n\nCoroutine achieves the asynchronous execution by running other codes while it does nothing but waiting(This is oversimplicated and probably is not very accurate- Please do your research to fully understand this concept), so that your code could do something else while waiting. For this to work as expected in python, Blocking function should be the coroutine function- Which is the function declared with `async def` keyword. and You should execute it with `await` keyword. You already used these keywords in your code so You should know how to use these.\n\ncorountine equivalent of `time.sleep()` is `await asyncio.sleep()`. You would want to use this function instead of good ol' `time.sleep()`. If you wonder why, Try to run your bot at multiple servers and use the command in both server at the same time. It will synchronously execute the command, Which means It will hang until It's done executing one command. Discord.py is designed to use coroutine to avoid that from happening.",
+            "Well I'm noob but try to complete that in 20days",
+            "Great\ud83d\udd25",
+            "I made a discord bot too and currently waiting for it to be approved",
+            "   \nGood job, I also have a discord project .. if you wanted to, talk, or ask for help .. you can contact me. ( Mr. Zangetsu#2627)",
+            "Wow thank you for posting this my python learning has been lagging a lot try developing discord bot got bored dumped that again started python after a while and lagged this gave me some inspiration to start over really nice bot good luck with rest of your python journey",
+            "great project mate!  \n\n\nlooks too cool, i have done several projects but this is really next level. do you mind having a chat regarding this project like your thought process during this/ libraries used/blogs/ and overall development of this.  \n\n\nreally looking forward to have few words with you!\ud83e\udd1d",
+            "that's great man!\nI was able to make a shitty discord bot only after like 5 months of learning boi, good job!\nalso can you provide a GitHub?\ud83d\udc49\ud83d\udc48",
+            "This is really great! We also have a custom discord bot for a private server that has music, tts, reddit meme, coin games, and a really cool function that applies roles based on the ranks we are in a videogame.",
+            "Damn I started coding 3 weeks ago and I'm still learning all the basics. That's really impressive and hopefully I'll be able to do this by the end of the year! Great work by the way",
+            "Where do I start with programming discord bots?",
+            "Do you have to pay anything to use your bot with discord? I\u2019ve been toying with the idea of making a bot for my server.",
+            "How did you make the 9 boxes for tic tack toe? I haven\u2019t seen anything like that... is it an image? Or emojis?",
+            "Hey do you have a link to the code? I have been playing with discord.py for a couple weeks and I would like to see it.",
+            "Source code please!",
+            "Hey I am extremely new to Python like i just started today, does anyone have recommendations on how I can learn as quick as possible",
+            "I think there's problem in the `unban` command. You're assigning values to an `user` variables in a `for` loop without doing anything. I think you might messed up with indentation. You should indent the `if` statement that comes after `for` loop.",
+            "Great man. What resources did you used to learn python? I was making curriculum for me to learn so it would be good if you post what were the resources and how was your learning process?",
+            "You didn't showed the s/dicksize function. Also, where's the code?",
+            "nice, messaging \\\\@Atler Hidolf and having \\\\@Fuhrer pop up as soon as you hit @.\n\n  \nThe company you keep..."
+        ]
+    },
+    {
+        "title": "Running Python in the Browser with Web Assembly - Qvault",
+        "username": "pmz",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Testing Scalability of a Python (Django) end point url",
+        "username": "motiaunty",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "You could use ab (apache bench) for hitting your url thousands of times, or basically any other multithreaded test client. ([https://gist.github.com/denji/8333630](https://gist.github.com/denji/8333630) for a list)\n\nBut, if you want to have a high performance solution for your post endpoint, you might want to start looking at more light-weight python web-frameworks anyway."
+        ]
+    },
+    {
+        "title": "How to NEVER use lambdas - Python 3 edition",
+        "username": "DNSGeek",
+        "ups": 6,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Thanks, I hate it.",
+            "r/programminghorror",
+            "That is in the end the essence of purely functional programming ;) not beautiful most of the times, but definitely works ;)\n\nReminds me of Haskell..."
+        ]
+    },
+    {
+        "title": "ES + CQRS learning project",
+        "username": "Hyaxia",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Sorting lists: sort() vs sorted()",
+        "username": "sebawitowski",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I'm running a series of articles on source code level optimizations (they won't change your code's speed significantly, but I like to know when to use which code structure), and this week I decided to test what's the fastest way to sort a list.\n\nIs it:\n\na) the\u00a0`sorted()`\u00a0function that returns a new list\n\nb) the\u00a0`list.sort()`\u00a0method that modifies list in place\n\n~~For one million randomly shuffled numbers, sort() turns out to be~~ **~~60 times faster~~** ~~than sorted()! But what's really interesting is that the performance of sorted() changes depending on the initial order! If we try to sort an already sorted list, the difference between both methods is much smaller. The more we shuffle the initial list, the slower sorted() becomes.~~\u00a0\n\nEven though `list.sort()` is usually faster, it can only be used on lists. If you want to sort a set, then `sorted()` is your only solution.\n\nCheck out all the benchmarks I have run with different levels of \"disorder\":\u00a0[https://switowski.com/blog/sorting-lists](https://switowski.com/blog/sorting-lists)\n\n&#x200B;\n\nEdit: Actually, as a kind guest pointed out, I messed up the benchmarks for `sort()`, and the difference between them is negligible. I've updated my original article."
+        ]
+    },
+    {
+        "title": "My solutions for Cracking the Coding Interview questions",
+        "username": "AuthorOfCode",
+        "ups": 495,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Are you accepting pull requests? Taking a quick look at some of your solutions, I have some more efficient solutions I'd love to add (not overwrite, but show alternative ways to do it).",
+            "Also, adding docstrings explaining the problem would help who stumbles upon your repo without the book.\n\nAsking for a friend :-)",
+            "Interesting resources.\n\nI think If you are looking at studying python exercises, it's probably more efficient to do them one at a time and post them to code review forums rather than comparing your solutions to someone else's.",
+            "Peope like you make the internet a better place",
+            "Just one suggestion. Try to add what the objective of individual program is and mention space and time complexities. Most of the interviews these days put emphasis on complexities.",
+            "Very interesting looking forward to going through them",
+            "hey thank you for this.",
+            "NERD ALERT! In all seriousness, great job.",
+            "Thank you! I was struggling to understand the cpp solutions! :)",
+            "This is awesome! Thanks!",
+            "!RemindMe 2 days",
+            "!RemindMe 2 days"
+        ]
+    },
+    {
+        "title": "Running Python in the Browser with Web Assembly",
+        "username": "kvothe1956",
+        "ups": 22,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "This is the start of a really cool project! Looking forward to following along :)",
+            "Pyodide advertises support for numpy, but your playground gives a \"module not found\" error when importing it."
+        ]
+    },
+    {
+        "title": "JavaScript vs Python comparison for Web Development",
+        "username": "William_John_k",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Python can compile to JS\nhttps://github.com/metaperl/mindspring/wiki/Python-Only-Web-Frameworks-and-Libraries"
+        ]
+    },
+    {
+        "title": "Friday megathread: Free chat Friday!",
+        "username": "Im__Joseph",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Guys, I'm new in Python and trying to learn stuff with doing practices. I'm working on daily tasks to automate, scratching from web etc. But I feel like I'm out of new ideas. Almost everything in my mind has a python library which is made for that purpose. How do you find new ideas to keep practicing? Whats your method?",
+            "Can we ask beginner questions here? I'm trying to learn to work with spreadsheets using python. I'm not the best with OOP, so I'm trying to practice using it whenever I can. As far as I can tell, the pyexcel library returns dictionaries and lists from spreadsheet data.  How would I take that data and transfer it to an object with properties populated by the dictionary? Is there some clever pythonic way to do that? If you were using pyexcel and you were wanting to use OOP style, how would you approach it?\n\nMy instinct is to start writing functions to manipulate the dictionary data. I want to understand the OOP way.",
+            "Is Conda down for anyone else? I can still get connections and allegedly download packages, but all under \\~100Kbps w/ a \\~75Mbps connection. I tried re-downloading the full anaconda installer script both with wget and within my browser, and got the same speeds. I have some modules to rebuild today and this timing is making my stomach hurt",
+            "I have a big problem:\n\nDoes someone know how to run two instances of Flaks / flask_restful in one run.py or in other word two instances of flaks in one docker container"
+        ]
+    },
+    {
+        "title": "Struggling with Python Image Processing for Periodic Noise",
+        "username": "LostInOxford",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "https://docs.opencv.org/3.4/d2/d0b/tutorial_periodic_noise_removing_filter.html\nTLDR = filter in the frequency domain where you can remove the problematic frequencies rather than just miscellaneous intensity peaks"
+        ]
+    },
+    {
+        "title": "Python Data Science - Reddit PRAW Dashboard Filter News & Valuable Data in House",
+        "username": "Soolsily",
+        "ups": 13,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "PRAW is just endless source of data and this amazing project could be even more awesome on flask but damn i only know basics cuz i'd love to help, great project man very useful"
+        ]
+    },
+    {
+        "title": "5 Reasons Python is Still the King of Programming Languages",
+        "username": "BrooklynShatterDome",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "\"Still\"..."
+        ]
+    },
+    {
+        "title": "Serve Your ML Models in AWS Using Python",
+        "username": "KindaKnowKarate",
+        "ups": 4,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Why should docstrings go inside the function body as opposed to before the function header?",
+        "username": "Morpheyz",
+        "ups": 14,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Because Python is interpreted docstrings are also a runtime construct. In Java or C# comments are compiled away, and parsed by another tool to generate a doc.\n\nIn Python you can access the doc of any object with `foo.__doc__`, in the normal life of your program.\n\nSo, docstring are inside declarations because they belong to the object internal dict. (and everything* in Python is a dict)",
+            "Modules can have docstring too.\n\nDocstring outside the function would be ambiguous.",
+            "I actually like it from a practical stand point. You read the function's signature and afterwards you can read about the details of that signature.\n\nWhat I am saying is that its good practice to comment what each function argument does like this:\n\n    \"\"\"\n    Adds a and b\n    :a: first part of sum \n    :b: second part of sum \n    :returns: sum\n    \"\"\"\n\nWhile some people might find this sort of documentation redundant I like it especially in scientific applications. It's always helpful to explain what actual (physical) meaning your denotated variables have and which units to expect. To understand all that, it is IMHO important to have the signature first and the docstring afterwards.",
+            "> one subchapter is about vertical spacing to convey meaning and  coherence. Things that have a tight connection should not have much  vertical space between them. \n\nDocstrings definitely have a \"tight connection\" with their function that is all about meaning and coherence.  If anything, this is an argument for having the docstring in the function instead of outside of it.\n\nIt's a trivial difference though.",
+            "Your Python and C# examples require exactly the same amount of scrolling from the function definition to the function body..."
+        ]
+    },
+    {
+        "title": "I made a rock paper scissors so what are your thoughts on the code and how can I improve",
+        "username": "ultimateshaur",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "There are lots of different ways to implement Rock, Paper, Scissors, so instead of telling you a completely different (though maybe more effective way), I\u2019ll make a few suggestions of how you can better optimize your approach. \n\nSome things to consider:\n\nYou know what conditions make player 1 win, so if none of those happen, player 2 wins. With just this knowledge, you can get rid of all of your checks for player 2, because it becomes (in pseudo code)\n\nIf any of these conditions, player 1 wins. \nElse player 2 wins. \n\nOne approach with what you already have would be to make a list called \u201cplayerOneWins\u201d, and Store each of player 1\u2019s winning conditions. \n\nThen check if \u201cplay\u201d is present in \u201cplayerOneWins\u201d. If so, print they win. Else, player 2 wins. \n\nAlso a side, you\u2019ll get much better response and less bitchy responses if you post things like this in /r/LearnPython. This place is pretty snooty.",
+            "1.) There is a subreddit for showcases:\n\nr/madeinpython\n\n2.) Check this out to learn how to properly format code on Reddit:\n\nhttps://reddit.com/r/learnpython/w/FAQ?utm_source=share&utm_medium=android_app"
+        ]
+    },
+    {
+        "title": "2-years in the making! Codename Mallow is a 4 player local/online versus multiplayer that I've been coding entirely in Python/Pygame. Tackled rope physics, particle engines, and other fun things. The demo launched today!! The source code is available, too. Enjoy :)",
+        "username": "Ancalabro",
+        "ups": 535,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Game looks cool! I appreciate you sharing your source code as well! Its hard to find good resources for pygame so things like this are very helpful",
+            "Wow! This is really well made",
+            "Fuck Among Us, this is the real dealllllll",
+            "Thank you for the learning opportunity \ud83d\ude4f",
+            "Looks amazing!!",
+            "You're from BC! Keep it up! Creators of Don't Starve are from here as well. Good luck to you. Hopefully, you follow in their footsteps.",
+            "I take it this is in part an homage to Marshmallow Duel?",
+            "Hello, I don't understand where I can find the source code. I would love to find it since your game runs so smoothly. Can you help me ?",
+            "[deleted]",
+            "Canada represent! Way to go! Just when I thought python couldn\u2019t get more awesomer. =]",
+            "Awesome job!!",
+            "Congratulations on your project and thank you so much for sharing it with us. Much appreciate.",
+            "Just wanted to say great work and let you know how impressive it is to see someone start from nothing and get to a released product like this. Congrats!",
+            "The demo looks pretty good.. can it be played on mobile?\nIf there is a link to playstore I would love to share it with my friends.",
+            "I just started to use pygame recently and it's just me or the documentation of pygame is just a mess?\n\nThe reference documents doesn't have any examples. The community tutorials focus on building a whole game (albeit small game) without touching on the structure of a project.",
+            "Wow this is giving me some WarioLand vibes. Will definitely check it out! Nicely done.",
+            "Holy fucking shit my guy that's amazing",
+            "The center-line-gravity-flip reminded me of Ibb and Obb. Coincidence?",
+            "Looks very fun!",
+            "As always amazing job my friend!!\n2 years is a long time and sticking to one project is hard!\nGood luck!!",
+            "Been following this project for such a long time and I have to say it's been so much fun watching this game and developer grow!\n\nA tremendous amount of work went into getting the original ideas into an actual playable demo. A demo which is super polished and most importantly: VERY FUN!! \n\nHad no idea this was also open source which is even more awesome! u/Ancalabro is one of the best there is\\~",
+            "This is amazing work, thanks for sharing the source!",
+            "Nice work!",
+            "Intermediate? :S\n\nSo this is what PyGame can do!"
+        ]
+    },
+    {
+        "title": "Django Blogs. like a blogger.com",
+        "username": "Yash-Rank",
+        "ups": 3,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "I created a program to scrape salaries from www.salary.com",
+        "username": "idd24x7",
+        "ups": 3,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "FizzBuzz",
+        "username": "musicalfoxes",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Why use x y and z as variable names instead of something that actually makes sense? Or just skip the variables completely:\n\n    def fizzbuzz(num):\n        result = \u2018\u2019\n        if num % 3 == 0:\n            result += \u2018Fizz\u2019\n        if num % 5 == 0:\n            result += \u2018Buzz\u2019\n        return result or f\u2019{num}\u2019\n\n    for n in range(1, 101):\n        print(fizzbuzz(n))",
+            "Here\u2019s a high quality implementation:\n\nhttps://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition",
+            "```\ndef FizzBuzz(num):\n    Ans=\"\"\n    If not(num%5):\n        Ans=Fizz\n    elIf not(num%3):\n        Ans+=Buzz\n    else:\n        Ans=num\n    return Ans\n```\n\nHow can I post formated code from phone?"
+        ]
+    },
+    {
+        "title": "How to create minimal interline spacing between vertical lines?",
+        "username": "netrate",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "No.",
+            "In PyCharm, you can change the line spacing, but it's application wide (ie: your code editor window will have the same spacing as the console window)\n\nGo to: File | Settings | Editor | Font\n\nor more quickly:\n\njetbrains://Python/settings?name=Editor--Font"
+        ]
+    },
+    {
+        "title": "I had tried to visualise the sorting of a data structure for the programmers who are new in data structure",
+        "username": "Aaris_Kazi",
+        "ups": 952,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I'd really recommend getting into the habit of thinking about variable naming, even in small projects like this. I tried to look at your source code and it's all `a`, `p`, etc.\n\nOther than that, good job! Maybe you could somehow flash the two values being compared? I would want it to somehow visualize what it is actually doing (rather than just moving purple bars, actually show what bar is the current selected one and what bar it's currently comparing against)",
+            "While it's always good to see people code, the best visualisation of sorting is still here: [https://www.youtube.com/user/AlgoRythmics/videos](https://www.youtube.com/user/AlgoRythmics/videos)",
+            "Did you use opencv as a GUI library? Just curious why not matplotlib, kivy, pygame, pyQT, tkinter, etc?",
+            "Just a premise: I take this post as a point to start a discussion, I have nothing against the post itself, but more about it's implications, and I didn't downvoted it.\n\nWith all the due respect this post should not have the Scientific computing flare, and should be at least tagged as Newbie or show and tell, but most of all, it should be in r/learningpython\n\nDue to the flare, I came here expecting something different than the other hundreds of sorting visualizations that appear here every other day.\nInstead, entering values to sort by hand, regrettable variable naming...\nAnd yet, more than 600 upvotes, and counting.\n\nThere have been discussions about this in the past, but I think the conclusions that were drawn (let's put an effort to keep this place clean, focused, and tidy) where wrong.\n\nThis sub has been friendly taken over by low level posts (again, no offence), newbie posts, vanity screencasts of how someone codes, etc.\n\nNow, the sub name does not allow for much of a cutoff, and wether we like it or not, this very example is indeed Python, so hard to argue it doesn't belong here.\n\nI think it's time to have something less obvious and ambiguous like \"advanced python\", or something, and leave this to the current audience.\n\nAgain, no intent to start a flame war or to accuse anyone, it's just an attempt to keep things separated so that people that care about things other than basic/trivial stuff can get their fix without having to dodge 19/20 posts (optimistic here) or getting disappointed like in this case.\n\nEdit: phone typos and other stuff",
+            "Source-Code: [https://github.com/Aaris-Kazi/Visualizing-Sorting-Algo-in-Python](https://github.com/Aaris-Kazi/Visualizing-Sorting-Algo-in-Python)",
+            "Thats cool, if the bars in animation window could also show the number, i mean you must have tried it, i just think it would have been more readable.",
+            "maybe change the color of the two bars that are being compared?",
+            "[deleted]",
+            "This is great! Perhaps you could allow the user to separate values with commas/spaces rather than entering them one line at a time?",
+            "I remember creating similar thing in the past using TK interface\nSee if it helps you in anyway\nhttps://github.com/SobyDamn/sorting-visualisation",
+            "Doesn't explain much but [THIS](https://youtube.com/watch?v=kPRA0W1kECg) is still one of the finest visualizations I've seen!",
+            "very nice bro! One tip, when showing this. Make sure you put in the numbers in random order(as so one bar would also stop in the middle) now it just looks like rotating all the lines from top to bottom. But nice program!",
+            "That's a nice representation. Checkout similar video which does same thing for multiple algorithms and on a larger scale\n\n&#x200B;\n\n [https://www.youtube.com/watch?v=kPRA0W1kECg](https://www.youtube.com/watch?v=kPRA0W1kECg)",
+            "This looks like a nested for loop with a conditional",
+            "Damnnnnn bro \u2764\ufe0f",
+            " Where the code at?"
+        ]
+    },
+    {
+        "title": "Updating old projects vs creating new ones",
+        "username": "Daktic",
+        "ups": 30,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "It depends. One way to think about this. \n\nIs it better to write new code at the same level  as your current code or is it better sometimes to refactor your code and figure out new better ways of doing the same thing. \n\nBoth have their benefits.  Only you know which you would get the greatest benefit from",
+            "Honestly, fuck it. It works. Move on.\n\nThat is how our software sprint cycles for a production app sees things.\n\nYolo some terrible parts with Python 2.7.",
+            "depends on how fast you can rewrite it"
+        ]
+    },
+    {
+        "title": "Improving Python exception chaining with...",
+        "username": "pmz",
+        "ups": 36,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I read a lot of PEP's, I read a lot of source code, and I always try to keep up on best practices and embarrassingly, I had no idea that `raise...from` existed.",
+            "This is the sort of quality of life improvement that I love reading about!",
+            "Just FYI this was posted by the original author 3 months ago:\n\nhttps://www.reddit.com/r/Python/comments/hex7bg/improving_python_exception_chaining_with_raise/"
+        ]
+    },
+    {
+        "title": "I made a bot to play word scrabble for me.",
+        "username": "mehedi_shafi",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Nice stuff! I always find it more fun to write something to solve a game than playing the actual game."
+        ]
+    },
+    {
+        "title": "Alternative python-wrapped Newton-Krylov solvers?",
+        "username": "pedrosecchi67",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "https://github.com/haranjackson/NewtonKrylov"
+        ]
+    },
+    {
+        "title": "Visualizing gzip compression with Python! - Stephen Brennan",
+        "username": "pmz",
+        "ups": 5,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "This is an article about visualizing gzip compression *ratios* as they vary across a compressed file, which is far less interesting a visualization of the gzip *algorithm* itself as the title seems to promise."
+        ]
+    },
+    {
+        "title": "Part Two: Lesson 2: if else Statements",
+        "username": "muthm",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "no"
+        ]
+    },
+    {
+        "title": "My first project: A text to character translator",
+        "username": "SpaceArf",
+        "ups": 2,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Should i try to learn how the libraries are made?",
+        "username": "Tomas_83",
+        "ups": 4,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Libraries are a double-edged sword. They are immensely helpful and allow you accomplish tasks easily but the also can abstract away a lot of the internal workings of whatever they do. You don't need to understand their implementations exactly but I'd encourage you to make sure you at least learn the concepts behind what they're doing.",
+            "I rarely ever look at a libraries code, unless I am getting an error that a simple google search can't solve.  \n\n\nThen occasionally I'll crack open a library to see what I may be doing wrong.",
+            "Use the library\u2019s to help you accomplish the tasks necessary to build whatever applications you\u2019re building\u2026 But there\u2019s no need to be completely versed in the library if you\u2019re learning",
+            "Use libraries to build more complex applications.  This is how all sciences work: you use developments of those before you to build new, better things.",
+            "You don't necessarily need to look at libraries to use them, but it can help sometimes to look at the implementation if the documentation is confusing. Also, If you're the kind of person who likes to learn about how thing work by taking them apart, then looking into how the libraries you use work can teach you some approaches to writing your own code.",
+            "I think it is very valuable to check work of other smart people. I would suggest start looking into how open source modules are made after being comfortable with programming, networking and operating system concepts in general. Looking at professional level code can give you insights that you might miss if there are too many things you don't understand.",
+            "Yes and no.\n\nAt work, we probably have over a hundred or so libraries that are direct dependencies of our projects, and many of these libraries are massive projects with dependencies themselves; and then there's the system level dependencies. There's no way anyone can ever learn how even a tenth of them works. And ours aren't even really a big software projects, not even close.\n\nHowever, having a good general understanding of how your most important dependencies work is always good, as it'll help you do your own project better. Just don't make it a goal to try to understand everything.",
+            "It is usually not necessary, especially if it is a well established library.  But while it's OK to keep it a black box, there are several reasons you might want to still look at library code:\n\n1. To better understand the API if the documentation is lacking\n2. To make sure there are no gotcha issues if your application is critical\n3. To verify the code quality of the library before you rely on it\n4. Just to see how it works out of curiosity\n5. To potentially learn coding techniques by looking at the code of others",
+            "I mostly learn the concepts of the library I'm using. I started working with socket because I am trying to get into networking so I want to have some coding experience with the concepts I learnt. I mostly look at library codes to see how I can improve my code and read the stub notations and try to learn how the lib was implemented."
+        ]
+    },
+    {
+        "title": "Thursday megathread: Python careers!",
+        "username": "Im__Joseph",
+        "ups": 7,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "I saw a comment about the requirements for landing a job as a web dev with Python and JS. Generally, is it true?\n\n>As far as I have read, you need to know at least:\n>\n>- Your base language (Python, in this case)\n>\n>- A SQL's flavor (usually PostgreSQL or MySQL)\n>\n>- Git\n>\n>- A framework (Django or Flask)\n>\n>Add symmilar requirements to Javascript and you are >set for full-stack development."
+        ]
+    },
+    {
+        "title": "I started learning python in February (with no programming experience) and today I'm releasing the alpha for my first app! (container management webui)",
+        "username": "SelfhostedPro",
+        "ups": 28,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "This is super impressive!",
+            "Curious what your background is? Only a few months and you added many other frameworks and languages in and zero prior experience?",
+            "Im intersted in knowing how you got to your current level? What projects did you build before you felt competent enough to tackle something like this? How did you get into learning Docker and docker compose?",
+            "Is this all made with Python? Because if it is, I'm very impressed! I started programming with Python around the same time as you. Would you like to learn together?"
+        ]
+    },
+    {
+        "title": "Concise and short pyenv explanation",
+        "username": "Willemoes",
+        "ups": 1,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Hey ppl, I wrote this a few months ago and I always come back to it. Just a quick reminder on how to use pyenv. I thought it might be useful for you as well.",
+            "You failed to answer the real question.\n\nBut why?"
+        ]
+    },
+    {
+        "title": "Stochastic gradient descent code from scratch in python",
+        "username": "ai_basics",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "Free Udemy Course: Automating tasks with Python",
+        "username": "Bluelime_learning",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "*Beep boop*\n\nI am a bot that sniffs out spammers, and this smells like spam.\n\nAt least 75.0% out of the 28 submissions from /u/Bluelime_learning appear to be for courses, coupons, and things like affiliate marketing links.\n\nDon't let spam take over Reddit! Throw it out!\n\n*Bee bop*",
+            "View in your timezone:  \n[09/27/2020 05:09 AM PDT][0]  \n\n[0]: https://timee.io/20200927T1209?tl=Free%20Udemy%20Course%3A%20Automating%20tasks%20with%20Python",
+            "thank you! hands are sore from upvoting all the ska comments. would love an auto-upvoter for all those silly people. \n\noh no. i've found my people"
+        ]
+    },
+    {
+        "title": "Choosing Your First Programming Language For Artificial Intelligence: Python and Ruby",
+        "username": "Albertchristopher",
+        "ups": 0,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": []
+    },
+    {
+        "title": "I built a simple biological model in Python and Jupyter",
+        "username": "Tech-Matt",
+        "ups": 16,
+        "downs": 0,
+        "subreddit": "Python",
+        "comments": [
+            "Hey, that's super cool, I love it! Really fun to see some biology projects, very cool. Thanks for sharing!"
+        ]
+    }
+]
