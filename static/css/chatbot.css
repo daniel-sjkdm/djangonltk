@@ -1,0 +1,35 @@
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+#human-message {
+    width: 100% ;
+}
+
+#chat-area {
+    background-color: #e5e9f0;
+    height: 700px;
+    max-height: 700px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 10px;
+}
+
+.human-card {
+    margin: 5px 5px;
+    background-color: #CCF0D8 ;
+    border-radius: 5px;
+    height: 70px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.bot-card {
+    margin: 5px 5px;
+    background-color: #C1c6e6;
+    border-radius: 5px;
+    height: 70px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

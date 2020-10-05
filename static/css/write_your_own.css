@@ -1,0 +1,30 @@
+p {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 17px;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+textarea:hover {
+    box-shadow: 0 0 35px -2px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    margin-top: 15px;
+}
+
+table th, td {
+    text-align: center;
+}
+
+.wyo-processing {
+    margin-top: 15px;
+}
+
+.wyo-title {
+    text-align: center;
+}
