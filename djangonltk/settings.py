@@ -146,5 +146,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://djangonltk.herokuapp.com",
 ]
 
+CORS_ALLOW_ALL_ORIGINS = True
 
 django_heroku.settings(locals())
