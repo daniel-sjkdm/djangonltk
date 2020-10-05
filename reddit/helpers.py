@@ -7,7 +7,9 @@ import os
 from django.conf import settings
 
 
-if settings.DEBUG == True:
+DEVELOPMENT_MODE = False
+
+if settings.DEBUG == True and DEVELOPMENT_MODE == True:
     load_dotenv()
     client_id = os.getenv('CLIENT_ID')
     client_secret = os.getenv('CLIENT_SECRET')
