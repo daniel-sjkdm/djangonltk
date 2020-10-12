@@ -139,3 +139,4 @@ cython_debug/
 
 # Django
 migrations/
+db.sqlite3
