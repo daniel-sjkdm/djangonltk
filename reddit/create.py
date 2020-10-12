@@ -11,8 +11,8 @@ from helpers import get_posts
 
 
 
-create_post_url = "http://127.0.0.1:8000/api/posts/create"
-create_comments_url = "http://127.0.0.1:8000/api/comments/create"
+create_post_url = "https://djangonltk.herokuapp.com/api/posts/create"
+create_comments_url = "https://djangonltk.herokuapp.com/api/comments/create"
 
 def get_auth_headers():
     return {
@@ -26,6 +26,8 @@ def create_posts(posts):
     data = []
 
     for post in posts:
+
+        print("Creating a post...!")
 
         data = {
             "username": post["author"],
