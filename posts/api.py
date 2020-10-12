@@ -4,8 +4,10 @@ from rest_framework.views import APIView
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from .models import Post, Comment
-from .serializers import PostSerializer, CommentSerializer
+from .serializers import PostSerializer, CommentSerializer, RedditPostSerializer
 from .data_processing import tokenize_words, stem_sentence, pos_tags_sentence, lemmatize_sentence, remove_stop_words, chat_bot
+from reddit.helpers import search_reddit_api
+
 
 
 @api_view(["GET"])
@@ -64,7 +66,7 @@ def searchPost(request):
         post = get_object_or_404(Post, title=title)
         serializer = PostSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
-        
+
 
 @api_view(["POST"])
 def parsePost(request):
@@ -100,3 +102,14 @@ def chatBot(request):
         human_message = request.data.get("human_message")
         bot_message = bot.respond(human_message)
         return Response({"data": bot_message, "bot_name": name}, status=status.HTTP_200_OK)
+
+
+
+@api_view(["GET"])
+def searchRedditAPI(request):
+    if request.method == "GET":
+        subreddit = request.GET.get("subreddit")
+        kind = request.GET.get("kind")
+        posts = search_reddit_api(subreddit, kind)
+        serializer = RedditPostSerializer(posts, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
