@@ -29,3 +29,22 @@ class PostSerializer(serializers.ModelSerializer):
             "created",
             "url"
         ]
+
+
+
+class RedditCommentSerializer(serializers.Serializer):
+    id = serializers.CharField()
+
+
+class RedditPostSerializer(serializers.Serializer):
+    id = serializers.CharField(max_length="6")
+    title = serializers.CharField()
+    username = serializers.CharField()
+    subreddit = serializers.CharField()
+    created = serializers.DateField(format="%Y-%m-%d %H:%M:%S")
+    ups = serializers.IntegerField()
+    downs = serializers.IntegerField()
+    num_comments = serializers.IntegerField()
+    url = serializers.URLField()
+    comments = serializers.JSONField()
+    sentiment = serializers.IntegerField(read_only=True)
