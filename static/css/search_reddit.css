@@ -1,0 +1,47 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    /* align-items: center; */
+    align-content: center;
+    margin: 30px 30px;
+}
+
+.header_title {
+    text-align: center;
+}
+
+.header_desc {
+    text-align: center;
+}
+
+
+input {
+    width: 80%;
+}
+
+
+.spinner {
+    color: red;
+}
+
+
+.post_title {
+    text-align: justify;
+}
+
+.post_likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.post_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+}
