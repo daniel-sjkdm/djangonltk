@@ -62,6 +62,18 @@ class Chatbot(View):
         }
         return render(request, "chatbot.html", context=context)
 
+
+class RedditSearh(View):
+    """
+        Use the search bar to fetch posts from reddit
+    """
+    def get(self, request):
+        context = {
+            "orderby": ["top", "hot", "new"]
+        }
+        return render(request, "search_reddit.html", context=context)
+
+
 '''
 
 
