@@ -1,7 +1,12 @@
-
 .root {
     background-color: white;
 }
+
+
+nav {
+    height: 50px;
+}
+
 
 nav ul li a {
     text-decoration: none;
@@ -12,4 +17,12 @@ nav ul li a {
 nav ul li a:hover {
     text-decoration: none;
     color: #50FA7B;
+}
+
+
+.bottom_information {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }

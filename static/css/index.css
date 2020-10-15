@@ -2,13 +2,20 @@ body {
     background-color: white;
 }
 
+
 .title {
-    margin: 40px 40px;
-    padding: 20px 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px 10px;
     text-align: center;
     background-color: #343A40;
     color: white;
     border-radius: 10px;
+}
+
+
+.title:hover {
+    letter-spacing: 5px;
 }
 
 
@@ -19,6 +26,11 @@ body {
 
 
 section ul {
-    list-style: none;
+    list-style: disc;
 }
 
+
+section {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
