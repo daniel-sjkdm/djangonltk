@@ -14,13 +14,27 @@
 {% block body %}
     <div class="container">
         <div>
-            <p> Write something here or copy text from another source to parse its content  </p>
+            <p style="font-size: 20px;"> Write something here or copy text from another source to parse its content  </p>
+            <p> To get the score of the sentence all the stop words are removed and then python's VADER library give us 
+                a number:
+            </p> 
+            <ul>
+                <li> 1: positive </li> 
+                <li> 0: neutral  </li>
+                <li> -1: negative </li> 
+            </ul>
+            <p> This approach is used since stop words don't give any information about the sentiment </p>
+            <p> Curious about the raw response we got from the server? Open dev tools, process the sentence 
+                and then look at the console <i class="fa fa-terminal" aria-hidden="true" style="color: white; background-color: black"></i> !
+            </p>
             <form id="wyoform" method="POST">
                 {% csrf_token %}
                 <textarea name="tms" id="tms" rows="10"></textarea> 
                 <br/>
-                <button type="submit" class="btn btn-primary btn-lg" id="submit-btn"> Process </button>
+                <button type="submit" class="btn btn-success btn-md" id="submit-btn"> Process </button>
             </form>
+            <br/>
+            <button class="btn btn-primary btn-sm" id="random_tweet"> Load random tweet </button>
         </div>
 
         <div class="wyo-processing">
@@ -71,7 +85,17 @@
                         const sentence_pos_tags = response["sentence_pos"].map(item => (
                             `< ${item} >`
                         ));
-                        const sentence_lemma = response["sentence_lemma"].map(item => Object.entries(item)).map(item => `<${item[0]}: ${item[1]}>`)
+                        const sentence_lemma = response["sentence_lemma"].map(item => Object.values(item)).join(", ");
+                        let sentence_sentiment = "";
+                        if (response["sentence_sentiment"] === 1) {
+                            sentence_sentiment = "positive";
+                        }
+                        else if (response["sentence_sentiment"] === -1) {
+                            sentence_sentiment = "negative";
+                        }
+                        else {
+                            sentence_sentiment = "neutral";
+                        }
                         $(".wyo-processing").show();
                         $("#wyo-body").html("");
                         $("#wyo-body").append(`
@@ -95,6 +119,10 @@
                                 <td> Words Lemma </td>
                                 <td> ${ sentence_lemma } </td>
                             </tr>
+                            <tr>
+                                <td> Sentiment </td>
+                                <td> ${ sentence_sentiment } </td>
+                            </tr>
                         `);
                     },
                     error: err => {
@@ -102,6 +130,21 @@
                     }
                 });
             }
+        });
+
+        $("#random_tweet").click(() => {
+            $.ajax({
+                url: "http://127.0.0.1:8000/api/tweet/random",
+                method: "GET",
+                success: response => {
+                    const tweet = response.tweet;
+                    $("#tms").html(tweet);
+                    console.log(tweet)
+                },
+                error: err => {
+                    alert("There was an error at server");
+                }
+            });
         });
     </script>
 {% endblock %}
