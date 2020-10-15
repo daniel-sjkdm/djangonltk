@@ -4,13 +4,15 @@ from .data_processing import tokenize_words, stem_sentence, pos_tags_sentence, l
 
 
 class Post(models.Model):
+    post_id = models.CharField(max_length=6, unique=True) 
     title = models.CharField(max_length=300, null=False, unique=True)
     username = models.CharField(max_length=50, null=False)
     ups = models.IntegerField(default=0, blank=True)
-    downs = models.IntegerField(default=0, blank=True)
     subreddit = models.CharField(max_length=20, null=False, default="")
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField()
+    num_comments = models.PositiveSmallIntegerField(default=0)
     url = models.URLField(verbose_name="post_url", null=False)
+    sentiment = models.CharField(max_length=10, null=False)
 
     class Meta:
         order_with_respect_to = "created"
@@ -23,7 +25,6 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    username = models.CharField(max_length=200, null=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     content = models.TextField(null=False)
     tokens = models.TextField(null=True)
