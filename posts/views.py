@@ -4,7 +4,6 @@ from django.http import JsonResponse
 from django.core.paginator import Paginator
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
-from reddit.helpers import get_posts
 
 
 
@@ -32,18 +31,6 @@ class WriteYourOwn(View):
     """
     def get(self, request):
         return render(request, "write_your_own.html", context={})
-
-
-
-class ProcessData(View):
-    """
-        Process the data sent from the client by ajax
-        and return all the parsed data
-    """
-    def post(self, request):
-        if request.is_ajax():
-            print(request.POST)
-    
 
 
 class Chatbot(View):
