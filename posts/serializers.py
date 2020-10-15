@@ -21,13 +21,13 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = [
-            "id",
+            "post_id",
             "title",
             "username",
             "ups",
-            "downs",
             "created",
-            "url"
+            "url",
+            "sentiment"
         ]
 
 
@@ -43,7 +43,6 @@ class RedditPostSerializer(serializers.Serializer):
     subreddit = serializers.CharField()
     created = serializers.DateField(format="%Y-%m-%d %H:%M:%S")
     ups = serializers.IntegerField()
-    downs = serializers.IntegerField()
     num_comments = serializers.IntegerField()
     url = serializers.URLField()
     comments = serializers.JSONField()
