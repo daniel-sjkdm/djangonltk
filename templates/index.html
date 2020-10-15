@@ -13,15 +13,43 @@
 
 {% block body %}
     <div class="container">
-        <h3 class="title"> Data processing with praw and django </h3>
+        <h3 class="title"> Natural Language Processing Playground </h3>
         <section> 
-            This web app uses praw library to fetch posts from reddit api and then add the posts
-            to the django's ORM database. NLKT library is used to perform NLP tasks in the post itself 
-            and the comments.
+
+            This web app was made to practice the following skills:
+
+            <ul>
+                <li> NLP </li>
+                <ul>
+                    <li> nltk library to perform a basic analysis over the corpora </li>
+                </ul>
+                <li> REST API <li> 
+                <ul>
+                    <li> Consuming: with <strong> praw </strong>, which is a python wrapper for the reddit api </li>
+                    <li> Creation: with djangorestframework for posts, which is a model/table stored at postgresql </li>
+                </ul>
+                <li> Deployment </li>
+                <ul>
+                    <li> Heroku: a PaaS to deploy applications, using the free plan </li>
+                </ul>
+                <li> JQuery </li>
+                <ul> 
+                    <li> A front end javascript library that makes DOM (Document Object Model) manipulation easier </li>
+                    <li> The requests to the django rest api are made with ajax, no page refresh required</li>
+                    <li> Event listeners for html elements as buttons, inputs (search bar), etc </li>
+                </ul>               
+                <li> HTML/CSS/Bootstrap </li>      
+                <ul>
+                    <li> Last but not least, I'm also learning this tools! </li>
+                </ul>   
+            </ul>
+
         </section>
+
         <section>
-            NLTK (Natural Language ToolKit) is used to parse a corpus which is raw text into
-            useful information that can be used later on for complex tasks such as:
+            <h3> What's NLP? </h3>
+            NLTK (Natural Language ToolKit) is used to parse a corpus defined as a collection of documents, text or writings. Parsing 
+            means extract useful information from the raw resources that can be used later on for complex tasks such as:
             <ul>
                 <li> Sentiment Analysis </li>
                 <li> Entity named recognition </li>
@@ -30,10 +58,9 @@
                 <li> Chatbots </li>
                 <li> and even more... </li>
             </ul>
-            The basic parsing techniques wich will be performed in the posts are:
+            The basic parsing techniques wich will be performed in this we app are:
             <ul>
                 <li> Word Tokenization: split a sentece into words </li>
-                <li> Bigrams: a set of two word tokens (ex. ("python", "rules")) </li>
                 <li> Stemming: normalize a word into its root form (being the root not necessarily a word) </li> 
                 <li> Lemmatization: normalize the worls in its root form (beign the root an actual word)  </li>
                 <li> Stop words: words that are commonly used to connect two words but doesn't give information </li>
@@ -43,14 +70,13 @@
                     <li> Prepositions </li>
                     <li> ...etc </li>
                 </ul>
+                <li> Computing the Zipf curve: distribution of word tokens of a given corpus </li>
             </ul>
+            
+            In this app, corpus will be the set of comments extracted from reddit. Also the user input provides
+            at "Tell Me" section.
+
         </section>
-        <button class="btn btn-primary">
-            Start
-        </button>
+
     </div>
-{% endblock %}
-
-
-{% block scripts %}
 {% endblock %}
