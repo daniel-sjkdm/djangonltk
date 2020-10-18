@@ -22,6 +22,7 @@ class Migration(migrations.Migration):
                 ('ups', models.IntegerField(blank=True, default=0)),
                 ('subreddit', models.CharField(default='', max_length=20)),
                 ('created', models.DateTimeField(auto_now_add=True)),
+                ('num_comments', models.PositiveSmallIntegerField(default=0)),
                 ('url', models.URLField(verbose_name='post_url')),
                 ('sentiment', models.CharField(max_length=10, null=False))
             ],
