@@ -17,7 +17,7 @@
 
         <div class="row">
             <div class="col-lg-8 col-md-8 col-xs-12">
-                <input id="searchbar" type="text" placeholder="Search by subreddit here" />
+                <input id="searchbar" type="text" placeholder="Search something!" />
             </div>
             <div class="col-lg-2 col-md-2 col-xs-12">
                 <button class="btn btn-sm btn-outline-secondary dropdown-toggle" style="width: 100%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Category </button>
@@ -28,11 +28,9 @@
                 </div>
             </div>
             <div class="col-lg-2 col-md-2 col-xs-12">
-                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" style="width: 100%;" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Limit </button>
-                <div class="dropdown-menu limit_dropdown">
-                    {% for limit in limits %}
-                        <a class="dropdown-item"> {{ limit }} </a>
-                    {% endfor %}
+                <div class="d-flex flex-row justify-content-center align-content-center">
+                    <label style="padding-top: 5px; padding-right: 5px;"> Limit </label>
+                    <input id="limit" type="number" min="10" max="100" value="10"/>
                 </div>
             </div>
         </div>
@@ -40,26 +38,6 @@
         <div class="d-flex justify-content-center" style="margin: 20px 20px;">
             <div class="spinner-border" id="spinner" hidden role="status" style="height: 4rem; width: 4rem; color: #50FA7B">
                 <span class="sr-only">Loading...</span>
-            </div>
-        </div>
-
-
-        <div class="modal" id="modal_comments" tabindex="-1">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"> Comments </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modal_body_comments">
-                    
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-                </div>
             </div>
         </div>
 
