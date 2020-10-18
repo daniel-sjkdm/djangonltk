@@ -71,7 +71,7 @@
             if ( text !== "" ) {
                 $.ajax({
                     type: "post",
-                    url: "http://127.0.0.1:8000/api/posts/parse",
+                    url: "https://djangonltk.herokuapp.com/api/posts/parse",
                     data: encoded_form,
                     success: response => {
                         console.log(response)
@@ -134,7 +134,7 @@
 
         $("#random_tweet").click(() => {
             $.ajax({
-                url: "http://127.0.0.1:8000/api/tweet/random",
+                url: "https://djangonltk.herokuapp.com/api/tweet/random",
                 method: "GET",
                 success: response => {
                     const tweet = response.tweet;

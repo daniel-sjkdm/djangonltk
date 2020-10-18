@@ -91,7 +91,7 @@
             const id = event.target.id;
             $.ajax({
                 type: "GET",
-                url: `http://127.0.0.1:8000/api/comments/${id}`,
+                url: `https://djangonltk.herokuapp.com/api/comments/${id}`,
                 success: response => {
                     $(".modal-body").empty();
                     if (response.length >= 1) {

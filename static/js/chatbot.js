@@ -32,7 +32,7 @@ $(".dropdown-item").click((event) => {
     const name = event.target.text;
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:8000/api/chatbot",
+        url: "https://djangonltk.herokuapp.com/api/chatbot",
         headers: {"Content-Type": "application/json"},
         data: {bot_name: name},
         success: response => {
@@ -51,7 +51,7 @@ $("#human-form").submit((event) => {
     $("#human-message").val("");
     $.ajax({
         method: "POST",
-        url: "http://127.0.0.1:8000/api/chatbot",
+        url: "https://djangonltk.herokuapp.com/api/chatbot",
         data: data,
         success: response => {
             add_human_message(human_message),
