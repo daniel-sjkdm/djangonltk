@@ -16,13 +16,14 @@ class Migration(migrations.Migration):
             name='Post',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('post_id', models.CharField(max_length=6, unique=True)),
                 ('title', models.CharField(max_length=300, unique=True)),
                 ('username', models.CharField(max_length=50)),
                 ('ups', models.IntegerField(blank=True, default=0)),
-                ('downs', models.IntegerField(blank=True, default=0)),
                 ('subreddit', models.CharField(default='', max_length=20)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('url', models.URLField(verbose_name='post_url')),
+                ('sentiment', models.CharField(max_length=10, null=False))
             ],
             options={
                 'order_with_respect_to': 'created',
@@ -32,7 +33,6 @@ class Migration(migrations.Migration):
             name='Comment',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('username', models.CharField(max_length=200, null=True)),
                 ('content', models.TextField()),
                 ('tokens', models.TextField(null=True)),
                 ('stems', models.JSONField(null=True, verbose_name='post stems')),
