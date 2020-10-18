@@ -41,18 +41,28 @@
         <div class="post-container">
             <div class="row">
                 {% for post in page_obj %}
-                    <div class="col-lg-4 col-md-6 col-xs-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"> {{ post.title }} </h5>
-                                <h6 class="card-subtitle"> Author: {{ post.username }}  </h6>
-                                <p class="card-text"> {{ post.content }} </p>
-                                <span class="badge badge-success"> ups: {{ post.ups }} </span>
-                                <span class="badge badge-danger"> downs: {{ post.downs }} </span>
+                    <div class="col-lg-6 col-md-6" col-xs-12"> 
+                        <div class="card" style="height: 350px; margin-bottom: 30px;">
+                            <div class="card-body post_body">
+                                <h5 class="card-title post_title" id="post_title_${post.id}"> ${post.title} </h5>
+                                <h6 class="card-subtitle" style="text-align: center" id="post_username_${post.id}"> Author: ${post.username}  </h6>
+                                <div class="d-flex flex-row justify-content-around">
+                                    <p id="post_subreddit_${post.id}"> r/${post.subreddit} </p>
+                                    <p id="post_created_${post.id}"> Created ${post.created} </p>
+                                </div>
+                                <div class="post_likes">
+                                    <span class="badge badge-success" id="post_ups_${post.id}"> ups: ${post.ups} </span>
+                                    <span class="badge badge-primary" id="post_sentiment_${post.id}"> sentiment: ${post.sentiment} </span>
+                                </div>
                                 <br/>
                                 <div class="card-actions">
-                                    <button class="btn btn-primary btn-sm detail-button" data-toggle="modal" data-target="#post-modal" id={{post.id}}> Comments </button>
-                                    <a class="btn btn-secondary btn-sm" href="{{post.url}}" target="_blank"> url </a>
+                                    <button class="btn btn-primary btn-sm comment_button" id=${post.id} data-toggle="modal" data-target="#modal_comments"> 
+                                        Comments <span class="badge badge-light" id="post_num_comments_${post.id}"> ${post.num_comments} </span>
+                                    </button>
+                                    <button class="btn btn-success btn-sm store_button" id=${post.id}>
+                                        Save
+                                    </button>
+                                    <a class="btn btn-secondary btn-sm" href="${post.url}" id="post_url_${post.id}" target="_blank"> url </a>
                                 </div>
                             </div>
                         </div>
@@ -84,34 +94,5 @@
 
 
 {% block scripts %}
-    <!-- <script src="{% static 'js/posts.js' %}"></script> -->
-    <script>
-        $(".detail-button").click((event) => {
-            event.preventDefault();
-            const id = event.target.id;
-            $.ajax({
-                type: "GET",
-                url: `https://djangonltk.herokuapp.com/api/comments/${id}`,
-                success: response => {
-                    $(".modal-body").empty();
-                    if (response.length >= 1) {
-                        response.map(comment => {
-                            $(".modal-body").append(`
-                                <div>
-                                    <p> ${comment.content} </p>
-                                    <hr/>
-                                </div>
-                            `);
-                        });
-                    } 
-                    else {
-                        $(".modal-body").html("The post has no comments!");
-                    }
-                },
-                error: error => {
-                    console.log(error);
-                }
-            })
-        });
-    </script>
+    <script src="{% static 'js/posts.js' %}"> </script>
 {% endblock %}
