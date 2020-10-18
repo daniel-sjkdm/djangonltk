@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.serializers.json import DjangoJSONEncoder
 from .data_processing import tokenize_words, stem_sentence, pos_tags_sentence, lemmatize_sentence, remove_stop_words
 
 
