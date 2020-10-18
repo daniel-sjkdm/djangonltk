@@ -140,12 +140,15 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-CORS_ALLOWED_ORIGINS_REGEXES = [
-    r'http(s)?://localhost:8000',
-    r'http(s)?://localhost:5000',
-    r'http(s)?://127.0.0.1:8000',
-    r'http(s)?://127.0.0.1:5000',
-]
+# CORS_ALLOWED_ORIGINS_REGEXES = [
+#     r'http(s)?://localhost:8000',
+#     r'http(s)?://localhost:5000',
+#     r'http(s)?://127.0.0.1:8000',
+#     r'http(s)?://127.0.0.1:5000',
+# ]
+
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 REST_FRAMEWORK = {
