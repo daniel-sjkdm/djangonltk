@@ -193,7 +193,7 @@ const search_posts = (query) => {
         limit: Number(limit)
     };
 
-    let url = `https://www.reddit.com/search.json?q=${params.query}&limit=${params.limit}&sort=${params.kind}`;
+    let url = `https://cors-anywhere.herokuapp.com/https://www.reddit.com/search.json?q=${params.query}&limit=${params.limit}&sort=${params.kind}`;
 
     $.ajax({
         url: url,
