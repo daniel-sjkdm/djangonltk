@@ -2,14 +2,17 @@
 let posts = [];                                // Temporal array that holds the posts       
 let kind = "top";                              // Initial kind of reddit post to fetch
 let limit = 10;                                // Initial post limit
+const default_img = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.dailydot.com%2Fwp-content%2Fuploads%2F2018%2F05%2Freddit-redpill.jpg&f=1&nofb=1";
+
 
 const render_post = (post) => {
 
     const post_card =  `
-        <div class="col-lg-6 col-md-6" col-xs-12"> 
-            <div class="card" style="height: 350px; margin-bottom: 30px;">
+        <div class="col-lg-6 col-md-12" col-xs-12"> 
+            <div class="card" style="height: 600px; margin-bottom: 30px;">
+                <img src=${post.img} class="card-img-top" alt="" height="300">
                 <div class="card-body post_body">
-                    <h5 class="card-title post_title" id="post_title_${post.id}"> ${post.title} </h5>
+                    <h5 class="card-title post_title" id="post_title_${post.id}" style="overflow-y: scroll;"> ${post.title} </h5>
                     <h6 class="card-subtitle" style="text-align: center" id="post_username_${post.id}"> Author: ${post.username}  </h6>
                     <div class="d-flex flex-row justify-content-around">
                         <p id="post_subreddit_${post.id}"> r/${post.subreddit} </p>
@@ -21,9 +24,6 @@ const render_post = (post) => {
                     </div>
                     <br/>
                     <div class="card-actions">
-                        <button class="btn btn-primary btn-sm comment_button" id=${post.id} data-toggle="modal" data-target="#modal_comments"> 
-                            Comments <span class="badge badge-light" id="post_num_comments_${post.id}"> ${post.num_comments} </span>
-                        </button>
                         <button class="btn btn-success btn-sm store_button" id=${post.id}>
                             Save
                         </button>
@@ -51,25 +51,6 @@ const parse_post_card = (post_id) => {
         sentiment: $(`#post_sentiment_${post_id}`).text().trim().split(":").slice(1).join()
     };
     return data;
-};
-
-
-// -- Render the posts comments to the modal
-const render_post_comments = (post_id) => {
-    console.log("Render comments")
-    $("#modal_body_comments").empty();
-    const post = posts.filter(post => post.id === post_id);
-    Object.values(post[0].comments).map((comment, index) => (
-        $("#modal_body_comments").append(`
-            <p>  
-                ${index}: ${comment.body}
-            </p>
-            <p>
-                Sentiment: ${comment.sentiment}
-            </p>
-            <hr/>
-        `)
-    ));
 };
 
 
@@ -148,12 +129,12 @@ const paginator = () => {
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <a class="btn btn-secondary" style="text-align: center;" disabled> ${paginator_state.current_page} / ${paginator_state.total_pages} </a>
+                <a class="btn btn-secondary" style="text-align: center; margin-right: 10px;" disabled> ${paginator_state.current_page} / ${paginator_state.total_pages} </a>
                 <li class="page-item">
-                <a class="page-link" aria-label="Next" onclick="handleNextPage()">
-                <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
+                    <a class="page-link" aria-label="Next" onclick="handleNextPage()">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     `);
@@ -182,26 +163,42 @@ const showPosts = () => {
 };
 
 
+const computeSentiments = (posts) => {
+    console.log("Getting sentiment...")
+    $.ajax({
+        url: "https://djangonltk.herokuapp.com/api/posts",
+        method: "POST",
+        data: {tms: posts[0].title},
+        success: response => {
+            console.log(response);
+        },
+        error: err => {
+            alert("Server error");
+            console.log(err);
+        }
+    });
+};
+
+
 // -- Search a post, capture input and send a GET request
-const search_posts = (subreddit, kind) => {
+const search_posts = (query) => {
     $(".post_container").empty();
     $("#spinner").prop("hidden", false);
     $(".post_paginator").prop("hidden", true);
     posts = [];
 
-    const data = {
-        subreddit: subreddit.trim(),
+    const params = {
+        query: query.trim(),
         kind: kind.trim(),
-        limit:  Number(limit)
+        limit: Number(limit)
     };
 
-    $.ajax({
-        url: "https://djangonltk.herokuapp.com/api/reddit/search",
-        method: "GET",
-        data: data,
-        success: response => {
-            console.log(response)
+    let url = `https://www.reddit.com/search.json?q=${params.query}&limit=${params.limit}&sort=${params.kind}`;
 
+    $.ajax({
+        url: url,
+        method: "GET",
+        success: response => {
             if (response.length === 0) {
                 $("#spinner").prop("hidden", true);
                 alert("No subreddit was found");
@@ -209,11 +206,27 @@ const search_posts = (subreddit, kind) => {
             else {
 
                 $("#spinner").prop("hidden", true);
+                                
+                response.data.children.map(item => {
+                    const post = {
+                        id: item.data.id,
+                        title: item.data.title,
+                        created: new Date(item.data.created_utc).toLocaleString(),
+                        ups: item.data.ups,
+                        username: item.data.author_fullname,
+                        content: item.data.description,
+                        subreddit: item.data.subreddit,
+                    }
 
-                response.map((post, index) => {
-                    posts.push(post);                        
-                });                                       
+                    item.data.url.startsWith("/r/") ? post.url = "https://www.reddit.com" + item.data.url : post.url = item.data.url;
+                    item.data.preview ? post.img = item.data.preview.images[0].source.url : post.img = default_img;
 
+                    posts.push(post);
+                });
+
+                console.log(posts);
+
+                computeSentiments(posts);
                 paginator(); 
                 showPosts();
             }
@@ -224,6 +237,7 @@ const search_posts = (subreddit, kind) => {
             console.log(err);
         }
     });
+
 };
 
 
@@ -232,17 +246,19 @@ $(document).ready( () => {
         const query = $("#searchbar").val().toLowerCase();
         if (e.keyCode === 13) {
             if (query !== "") {
-                search_posts(query, kind);
+                search_posts(query.trim());
             }
         }
     });
 
     $(".kind_dropdown").click((e) => {
-        kind = e.target.text;
+        kind = e.target.text.trim();
     });
 
-    $(".limit_dropdown").click((e) => {
-        limit = e.target.text;
+    $("#limit").change((e) => {
+        const limit_value = Number(e.target.value);
+        if ( limit_value >= 10 ) {
+            limit = limit_value;
+        }
     });
-
 });
