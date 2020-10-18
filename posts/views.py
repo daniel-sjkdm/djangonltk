@@ -57,6 +57,6 @@ class RedditSearch(View):
     def get(self, request):
         context = {
             "orderby": ["top", "hot", "new"],
-            "limits": [10, 20, 50, 100]
+            "limits": [10, 50, 100]
         }
         return render(request, "search_reddit.html", context=context)
