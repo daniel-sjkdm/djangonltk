@@ -26,3 +26,9 @@ nav ul li a:hover {
 	justify-content: center;
 	align-items: center;
 }
+
+#mainNav {
+    background-color: #343A40;
+    padding: 10px 10px;
+    border-radius: 5px;
+}
