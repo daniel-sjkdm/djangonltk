@@ -3,20 +3,9 @@
 }
 
 
-nav {
-    height: 50px;
-}
-
-
 nav ul li a {
     text-decoration: none;
     color: white;
-    margin-right: 10px;
-}
-
-nav ul li a:hover {
-    text-decoration: none;
-    color: #50FA7B;
 }
 
 
@@ -25,10 +14,4 @@ nav ul li a:hover {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-}
-
-#mainNav {
-    background-color: #343A40;
-    padding: 10px 10px;
-    border-radius: 5px;
 }
